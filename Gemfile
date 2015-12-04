@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.2'
 
 gem 'rails', '4.2.4'
 gem 'sqlite3'
@@ -13,6 +14,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'haml-rails', '~> 0.9.0'
 gem 'autoprefixer-rails', '~> 6.1', '>= 6.1.2'
+
+gem 'devise', '~> 3.5', '>= 3.5.2'
 
 group :development, :test do
   gem 'byebug'
