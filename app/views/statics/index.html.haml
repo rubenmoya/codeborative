@@ -1,2 +1,7 @@
 %h1 Statics#index
-%p Find me in app/views/statics/index.html.haml
+- if user_signed_in?
+  %p
+    ="Welcome #{current_user.name || current_user.email}"
+    =link_to(' [Logout]', destroy_user_session_path, :method => :delete)
+- else
+  %p=link_to "Sign in with Github", user_omniauth_authorize_path(:github)

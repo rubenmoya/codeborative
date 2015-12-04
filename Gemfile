@@ -16,6 +16,9 @@ gem 'haml-rails', '~> 0.9.0'
 gem 'autoprefixer-rails', '~> 6.1', '>= 6.1.2'
 
 gem 'devise', '~> 3.5', '>= 3.5.2'
+gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
+
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 group :development, :test do
   gem 'byebug'
