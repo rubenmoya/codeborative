@@ -14,6 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'haml-rails', '~> 0.9.0'
 gem 'autoprefixer-rails', '~> 6.1', '>= 6.1.2'
+gem 'font-awesome-sass', '~> 4.4'
 
 gem 'devise', '~> 3.5', '>= 3.5.2'
 gem 'omniauth-github', '~> 1.1', '>= 1.1.2'

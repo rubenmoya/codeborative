@@ -1,0 +1,73 @@
+.Navbar {
+  align-items: center;
+  background: $background-primary;
+  display: flex;
+  flex-direction: row;
+  font-family: $font-family-alt;
+  justify-content: space-between;
+  padding: 2.25rem calc(50% - 480px);
+}
+
+.Logo {
+  color: $font-color-title;
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  &:hover {
+    color: $font-color-subtitle;
+    text-decoration: none;
+    transition: .4s;
+
+    i {
+      transform: rotateY(360deg);
+    }
+  }
+
+  i {
+    color: $font-color-alizarin;
+    transform: rotateY(0deg);
+    transition-duration: .75s;
+    transition-property: transform;
+  }
+}
+
+.TopMenu {
+  list-style: none;
+  margin: 0;
+
+  &-item {
+    float: left;
+    margin: 0 10px;
+
+    a {
+      color: $font-color-subtitle;
+      font-size: .9rem;
+      transition: .4s;
+
+      &:hover {
+        color: $font-color-title;
+        text-decoration: none;
+      }
+    }
+
+    &--border {
+      i {
+        margin-right: 4px;
+      }
+      a {
+        border-radius: 1rem;
+        border: 1px solid $font-color-subtitle;
+        color: $font-color-subtitle;
+        padding: .4rem .8rem;
+        font-size: .9rem;
+        transition: .4s;
+
+        &:hover {
+          border: 1px solid $font-color-title;
+          color: $font-color-title;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

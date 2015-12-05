@@ -1,7 +1,7 @@
-%h1 Statics#index
-- if user_signed_in?
-  %p
-    ="Welcome #{current_user.name || current_user.email}"
-    =link_to(' [Logout]', destroy_user_session_path, :method => :delete)
-- else
-  %p=link_to "Sign in with Github", user_omniauth_authorize_path(:github)
+%section.Home
+  .u-container
+    %h1 Help us to build a better community
+    %h2
+      Learn from the best developers or
+      %br/
+      teach the next generation, it's up to you.

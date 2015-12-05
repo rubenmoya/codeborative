@@ -1,0 +1,23 @@
+/* --------------------------
+ * Links
+ * -------------------------- */
+
+a {
+	text-decoration: $link-decoration;
+	color: $link-color;
+
+	&:hover {
+		text-decoration: $link-hover-decoration;
+		color: $link-hover-color;
+	}
+
+	&:focus {
+		outline: thin dotted;
+		color: $link-hover-color;
+	}
+
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}

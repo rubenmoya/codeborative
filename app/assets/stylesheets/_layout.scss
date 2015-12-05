@@ -1,0 +1,11 @@
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-root;
+  line-height: $line-height;
+  color: $font-color-primary;
+  background-color: $background;
+}
+
+.u-container {
+  padding: 1rem calc(50% - 480px);
+}

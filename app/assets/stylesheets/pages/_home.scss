@@ -1,0 +1,21 @@
+.Home {
+  background: $background-primary;
+  text-align: center;
+
+  h1, h2 {
+    font-family: $font-family-alt;
+    font-weight: normal;
+    margin: 2rem 0;
+  }
+
+  h1 {
+    color: $font-color-title;
+    font-size: 2.45rem;
+  }
+
+  h2 {
+    color: $font-color-subtitle;
+    font-size: 1.45rem;
+    line-height: 1.4;
+  }
+}
