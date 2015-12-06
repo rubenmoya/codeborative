@@ -1,0 +1,47 @@
+.Button {
+  border-radius: 2px;
+  border-top: 0;
+  color:white;
+  display: inline-block;
+  margin-right:10px;
+  padding: .65rem 2rem;
+  text-align:center;
+  outline: none;
+  font-size: .8rem;
+
+  &:hover{
+   opacity:0.8;
+  }
+
+  &:active {
+    margin-top: 3px;
+  }
+}
+
+@mixin button($color) {
+  background: $color;
+  border-bottom: darken($color, 10%) 3px solid;
+  border-left: darken($color, 10%) 1px solid;
+  border-right: darken($color, 10%) 1px solid;
+
+  &:active{
+    background: lighten($color, 1%);
+    border-bottom: darken($color, 10%) 1px solid;
+  }
+}
+
+.Button--green {
+  @include button(#2ecc71);
+}
+
+.Button--blue {
+  @include button(#3498db);
+}
+
+.Button--red {
+  @include button(#e74c3c);
+}
+
+.Button--yellow {
+  @include button(#f1c40f);
+}
