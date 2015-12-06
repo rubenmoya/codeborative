@@ -7,10 +7,11 @@
 
 @import "layout";
 
-@import "elements/links";
-@import "elements/headers";
 @import "elements/forms";
+@import "elements/headers";
+@import "elements/links";
 
+@import "components/alerts";
 @import "components/navbar";
 @import "components/tabs";
 @import "pages/home";

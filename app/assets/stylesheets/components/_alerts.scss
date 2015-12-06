@@ -1,0 +1,33 @@
+.Alert {
+  position: absolute;
+  background: #333;
+  padding: 1rem 2rem;
+  color: #FFF;
+  right: 1rem;
+  border-radius: 2px;
+  border: 1px solid #111;
+  animation: fadeOut 3s linear forwards;
+
+  &--success, &--notice {
+    background: $alert-success;
+    border-color: $alert-success-border;
+  }
+
+  &--danger, &--alert {
+    background: $alert-danger;
+    border-color: $alert-danger-border;
+  }
+
+  &--info {
+    background: $alert-info;
+    border-color: $alert-info-border;
+  }
+}
+
+@keyframes fadeOut {
+	0% 	{ opacity: 0; }
+	10% { opacity: 1; }
+	90% { opacity: 1; transform: translateX(0px);}
+	99% { opacity: 0; transform: translateX(200px);}
+	100% { opacity: 0; }
+}
