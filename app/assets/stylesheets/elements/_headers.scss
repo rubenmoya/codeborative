@@ -1,0 +1,15 @@
+hgroup {
+  margin: 2rem 0;
+  padding-bottom: .65rem;
+  border-bottom: 1px solid $font-color-secondary;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+    color: $font-color-secondary;
+    font-weight: normal;
+  }
+}

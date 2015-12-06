@@ -8,4 +8,8 @@ body {
 
 .u-container {
   padding: 1rem calc(50% - 480px);
+
+  &--sm {
+    margin: 1rem calc(50% - 280px);
+  }
 }

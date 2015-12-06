@@ -1,0 +1,62 @@
+form {
+  margin-top: 2rem;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 2.25rem;
+	text-align: left;
+
+
+	input[type="text"],
+	input[type="email"],
+	input[type="password"],
+	input[type="tel"],
+	textarea,
+	button,
+  select {
+		padding: 12px;
+		font-size: 14px;
+		border: 1px solid $font-color-subtitle;
+		width: 100%;
+		color: $font-color-subtitle;
+		font-weight: 300;
+		border-radius: 2px;
+		transition: all .3s;
+    outline: none;
+
+		&:focus, &:hover {
+			outline: none;
+			border-color: $font-color-secondary;
+		}
+
+	}
+
+	.fa-sort{
+		position:absolute;
+		right: 10px;
+		top: 17px;
+		color: $font-color-subtitle;
+	}
+	select{
+		cursor: pointer;
+	}
+	label, i{
+		font-size: .8rem;
+		font-weight: 400;
+	}
+	textarea{
+		resize: none;
+		height: 200px;
+	}
+	button{
+		cursor: pointer;
+		background-color: $font-color-subtitle;
+		border: none;
+		color: $background;
+		padding: 12px 0;
+		&:hover{
+			background-color: lighten($font-color-subtitle, 5%);
+		}
+	}
+}
