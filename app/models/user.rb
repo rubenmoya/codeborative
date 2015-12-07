@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :user_skills
+  has_many :skills, through: :user_skills
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -22,5 +25,9 @@ class User < ActiveRecord::Base
        user.email = data["email"] if user.email.blank?
      end
    end
+ end
+
+ def get_skills
+   self.skills.map(&:text).join(',')
  end
 end

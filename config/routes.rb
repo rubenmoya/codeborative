@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
+
   root 'statics#index'
+
+  get '/skills' => 'skills#index'
+  post '/skills/new' => 'skills#create'
+
+  devise_scope :user do
+    post '/update_skills' => 'users/registrations#update_skills'
+  end
 
   devise_for :users,
     path: '/',
