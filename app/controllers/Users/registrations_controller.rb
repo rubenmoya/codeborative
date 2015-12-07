@@ -43,7 +43,6 @@ before_filter :configure_account_update_params, only: [:update]
     old_skill_ids = db_skill_ids - skills_ids
     new_skill_ids = skills_ids - db_skill_ids
 
-    #byebug
     skills_to_delete = current_user.skills.where(id: old_skill_ids)
 
     skills_to_delete.each do |skill|

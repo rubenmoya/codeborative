@@ -16,6 +16,10 @@
   &:active {
     margin-top: 3px;
   }
+
+  &--block {
+    width: 100%;
+  }
 }
 
 @mixin button($color) {

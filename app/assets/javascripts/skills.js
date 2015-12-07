@@ -11,10 +11,9 @@ $(document).on('page:change', function(){
     onInitialize: function() {
       var existingOptions = JSON.parse(this.$input.attr('data-selectize-value'));
       var self = this;
-      console.log(existingOptions);
+
       if(Object.prototype.toString.call(existingOptions) === "[object Array]") {
           existingOptions.forEach(function (option) {
-            console.log(option[self.settings.valueField]);
             self.addOption(option);
             self.addItem(option[self.settings.valueField]);
           });

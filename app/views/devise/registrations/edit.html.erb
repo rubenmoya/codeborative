@@ -1,21 +1,34 @@
-<section class="u-container--sm">
-  <ul class="Tabs">
-    <li class="Tabs-item"><a href="#profile">Profile</a></li>
-    <li class="Tabs-item"><a href="#account">Account</a></li>
-  </ul>
+<div class="u-container--sm">
+  <hgroup>
+    <h1>My profile</h1>
+    <h2>Edit your account settings, skills and more.</h2>
+  </hgroup>
 
-  <div id="profile">
+  <section class="u-well">
+    <h2>Skills</h2>
+
     <%= form_tag(controller: 'users/registrations', action: 'update_skills', method: "post") do |f| %>
       <%= text_field_tag 'skills', nil, id: 'js-skills', data: {selectize_value: current_user.skills} %>
       <br>
-      <%= submit_tag "Save skills", class: "Button Button--red" %>
+      <%= submit_tag "Save changes", class: "Button Button--red Button--block" %>
     <% end %>
+  </section>
 
-    <hr>
 
+  <section class="u-well">
+    <h2>Profile</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { autocomplete: "off", method: :put }) do |f| %>
       <%= devise_error_messages! %>
+
+      <div class="input-group">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
       <div class="input-group">
         <%= f.label :twitter %>
@@ -33,34 +46,15 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Update profile", class: "Button Button--red" %>
+        <%= f.submit "Update profile", class: "Button Button--red Button--block" %>
       </div>
     <% end %>
-  </div>
+  </section>
 
-  <div id="account">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= devise_error_messages! %>
-
-      <div class="input-group">
-        <%= f.label :email %>
-        <%= f.email_field :email %>
-      </div>
-
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-
-      <div class="actions">
-        <%= f.submit "Update email", class: "Button Button--red" %>
-      </div>
-    <% end %>
-    <br>
-    <hr>
-
+  <section class="u-well">
     <h3>Cancel my account</h3>
-    <p>Unhappy?</p>
+    <p>Unhappy? You can cancel your account anytime. We will miss you!</p>
 
     <%= button_to "Cancel my account", registration_path(resource_name), class: "Button Button--red", data: { confirm: "Are you sure?" }, method: :delete %></p>
-  </div>
-</section>
+  </section>
+</div>
