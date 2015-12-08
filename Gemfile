@@ -22,6 +22,8 @@ gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
+gem "administrate", "~> 0.1.1"
+
 group :development, :test do
   gem 'byebug'
 end
@@ -32,5 +34,4 @@ group :development do
   gem 'awesome_print', require: 'ap'
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
   gem 'quiet_assets', '~> 1.1'
-  gem 'bullet', '~> 4.14', '>= 4.14.10'
 end
