@@ -1,0 +1,48 @@
+.UserList {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 1rem;
+
+  @media ($lg) {
+    margin: 0;
+  }
+}
+
+.User {
+  width: 100%;
+  padding: 1rem 1.4rem;
+  background: white;
+  border: 1px solid #E8E8E8;
+  border-radius: 4px;
+  margin-bottom: 1.2rem;
+
+  @media ($md) {
+    width: 49%;
+  }
+
+  h1 {
+    margin: 0;
+    line-height: 1;
+  }
+
+  p {
+    font-size: .85rem;
+    margin: 0;
+  }
+
+  &-description {
+    padding: 1rem 0;
+    margin: .5rem 0;
+    border-top: 1px solid $font-color-subtitle;
+  }
+
+  &-pic {
+    width: 80px;
+    height: 80px;
+    float: left;
+    margin-right: 10px;
+  }
+}

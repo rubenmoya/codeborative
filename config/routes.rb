@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   root 'statics#index'
 
+  get '/search(/:skills)' => 'search#index', as: :search
+
   get '/skills' => 'skills#index'
   post '/skills/new' => 'skills#create'
 

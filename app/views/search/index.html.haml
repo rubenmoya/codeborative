@@ -1,0 +1,25 @@
+.u-container
+  %section.Search
+    %h1 Search users
+    = form_for :search, method: :get do |f|
+      .input-group
+        = f.text_field :skills, placeholder: "Ruby, Javascript, Ruby on Rails..."
+
+  %section.UserList
+    - if @users.nil?
+      %p Search something!
+    - else
+      - if @users.length > 0
+        - @users.each do |user|
+          %article.User
+            %section.User-info.u-clear
+              =image_tag("https://pbs.twimg.com/profile_images/618422181454856192/CAseep-x.jpg", class: "User-pic")
+              %h1=link_to user.name, user_profile_path(user)
+              %p
+                =icon('github-alt')
+                =link_to clean_url(user.github), user.github
+              %p
+                =icon('clock-o')
+                Lastest seen on #{user.last_sign_in_at.try(:strftime, '%b, %e %Y')}
+      - else
+        %p Users not found!

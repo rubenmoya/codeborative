@@ -60,3 +60,12 @@ $alert-info-border: #2980b9;
  * nprogress gem color
  * -------------------------- */
 $nprogress-color: #e74c3c;
+
+
+/* --------------------------
+ * Mediaqueries
+ * -------------------------- */
+$sm: "min-width: 34em";
+$md: "min-width: 48em";
+$lg: "min-width: 62em";
+$xl: "min-width: 75em";
