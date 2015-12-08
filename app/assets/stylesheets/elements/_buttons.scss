@@ -1,3 +1,7 @@
+/* --------------------------
+ * Base button
+ * -------------------------- */
+
 .Button {
   border-radius: 2px;
   border-top: 0;
@@ -16,11 +20,27 @@
   &:active {
     margin-top: 3px;
   }
+}
 
+/* --------------------------
+ * Button sizes
+ * -------------------------- */
+
+.Button {
   &--block {
     width: 100%;
   }
+
+  &--sm {
+    padding: 0 .6rem;
+    font-size: .8rem;
+    font-weight: normal;
+  }
 }
+
+/* --------------------------
+ * Button colors
+ * -------------------------- */
 
 @mixin button($color) {
   background: $color;
@@ -31,6 +51,11 @@
   &:active{
     background: lighten($color, 1%);
     border-bottom: darken($color, 10%) 1px solid;
+  }
+
+  &:hover {
+    color: white;
+    text-decoration: none;
   }
 }
 

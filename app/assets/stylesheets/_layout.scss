@@ -2,12 +2,12 @@ body {
   font-family: $font-family-base;
   font-size: $font-size-root;
   line-height: $line-height;
-  color: $font-color-primary;
+  color: $font-color-secondary;
   background-color: $background;
 }
 
 .u-well {
-  padding: 1rem;
+  padding: 1rem 2rem;
   background: white;
   border: 1px solid #E8E8E8;
   border-radius: 4px;
@@ -15,9 +15,23 @@ body {
 }
 
 .u-container {
-  padding: 1rem calc(50% - 480px);
+  padding: 1rem calc(50% - 450px);
 
   &--sm {
-    margin: 1rem calc(50% - 280px);
+    margin: 1rem calc(50% - 320px);
   }
+}
+
+.u-left {
+  float: left;
+}
+
+.u-right {
+  float: right;
+}
+
+.u-clear:after {
+  content: "";
+  display: table;
+  clear: both;
 }

@@ -15,7 +15,7 @@
 
 .selectize-control.multi .selectize-input > div {
   border: 0;
-  background: $font-color-secondary;
+  background: $font-color-subtitle;
   color: $font-color-title;
   border-radius: 2px;
   display: inline-block;
@@ -27,17 +27,17 @@
 
   &.active {
     color: $font-color-title;
-    background: lighten($font-color-secondary, 3%);
+    background: lighten($font-color-subtitle, 3%);
   }
 }
 
 .selectize-control.plugin-remove_button [data-value] .remove {
   padding: 6px 6px 0 6px;
-  border-left: 1px solid darken($font-color-secondary, 5%);
+  border-left: 1px solid darken($font-color-subtitle, 10%);
   width: auto;
   font-size: 1rem;
 }
 
 .selectize-control.plugin-remove_button [data-value].active .remove {
-  border-left-color: darken($font-color-secondary, 5%)
+  border-left-color: darken($font-color-subtitle, 10%)
 }

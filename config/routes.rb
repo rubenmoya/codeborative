@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/skills' => 'skills#index'
   post '/skills/new' => 'skills#create'
 
+
   devise_scope :user do
     post '/update_skills' => 'users/registrations#update_skills'
   end
@@ -15,10 +16,12 @@ Rails.application.routes.draw do
       sign_in: 'login',
       sign_out: 'logout',
       sign_up: 'signup',
-      edit: 'profile'
+      edit: 'profile/edit'
     },
     controllers: {
       registrations: 'users/registrations',
       omniauth_callbacks: 'users/omniauth_callbacks'
     }
+
+  get '/profile/:id' => 'users#show', as: :user_profile
 end

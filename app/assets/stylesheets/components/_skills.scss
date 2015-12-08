@@ -1,0 +1,35 @@
+.Skill {
+  -webkit-transition: color 0.4s;
+  background: $font-color-subtitle;
+  border-radius: 2px;
+  color: $font-color-title;
+  cursor: pointer;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  margin: 0 10px 10px 0;
+  padding: 0 10px 0 23px;
+  position: relative;
+  text-decoration: none;
+
+  &:before {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+    content: '';
+    height: 6px;
+    left: 10px;
+    position: absolute;
+    width: 6px;
+    top: 10px;
+  }
+
+  &:hover {
+    background-color: $background-secondary;
+    color: white;
+  }
+
+  &:hover:after {
+     border-left-color: $background-secondary;
+  }
+}

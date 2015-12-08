@@ -1,0 +1,43 @@
+.u-container
+  .Profile.u-clear
+    %section.Profile--left
+      =image_tag("https://pbs.twimg.com/profile_images/618422181454856192/CAseep-x.jpg", class: "Profile-pic")
+
+      %h1=@user.name
+
+      %ul.Profile-social
+        %li
+          =icon('envelope')
+          =mail_to @user.email, @user.email
+        %li
+          =icon('github-alt')
+          =link_to clean_url(@user.github), @user.github
+        %li
+          =icon('twitter')
+          =link_to clean_url(@user.twitter), @user.twitter
+        %li
+          =icon('clock-o')
+          Joined on #{@user.created_at.strftime('%b, %e %Y')}
+
+    %section.Profile--right
+      .u-well
+        %header.Profile-buttons
+          =link_to edit_user_registration_path, class: "Button Button--green Button--sm" do
+            =icon('user-plus')
+            Add to friends
+          - if @user.id == current_user.id
+            =link_to edit_user_registration_path, class: "Button Button--blue Button--sm" do
+              =icon('edit')
+              Edit profile
+          =link_to edit_user_registration_path, class: "Button Button--red Button--sm" do
+            =icon('warning')
+            Report user
+
+        %h2 Description
+        %div.Profile-description
+          =simple_format(@user.description)
+
+        %h2 My skills
+        %div.Profile-skills
+          - @user.skills.each do |skill|
+            %span.Skill=skill.text

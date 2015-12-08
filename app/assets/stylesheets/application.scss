@@ -11,12 +11,15 @@
 
 @import "layout";
 
+@import "elements/buttons";
 @import "elements/forms";
 @import "elements/headers";
 @import "elements/links";
-@import "elements/buttons";
 
 @import "components/alerts";
 @import "components/navbar";
+@import "components/skills";
 @import "components/tabs";
+
 @import "pages/home";
+@import "pages/profile";
