@@ -2,10 +2,3 @@
   %section.u-well
     %h1 Edit project
     =render 'form'
-    
-    .input-group
-      = form_for(@project, url: project_update_tags_path(@project), method: "post") do |f|
-        = label_tag 'js-tags', 'Tags'
-        = text_field_tag 'tags', nil, id: 'js-tags', data: {selectize_value: @project.tags}
-        %br/
-        = submit_tag "Save changes", class: "Button Button--red Button--block"

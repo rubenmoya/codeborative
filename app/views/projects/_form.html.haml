@@ -12,4 +12,8 @@
     =f.text_area :description
 
   .input-group
+    = label_tag 'js-tags', 'Tags'
+    = text_field_tag 'project[tags]', nil, id: 'js-tags', data: {selectize_value: @project.tags}
+
+  .input-group
     =f.submit "Submit", class: "Button Button--red Button--block"

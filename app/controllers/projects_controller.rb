@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if @project.update(project_params)
+    if @project.update(project_params.except(:tags)) && @project.update_tags(project_params[:tags])
       redirect_to @project, flash: { success: "Project has been updated."}
     else
       render :new, flash: { danger: "Project has not been updated."}
@@ -44,27 +44,6 @@ class ProjectsController < ApplicationController
     @projects = Project.where(user_id: current_user.id)
   end
 
-  def update_tags
-    project = Project.find_by_id(params[:project_id])
-    tags_ids = params[:tags].split(',').map(&:to_i)
-    db_tag_ids = project.tags.map(&:id)
-
-    old_tag_ids = db_tag_ids - tags_ids
-    new_tag_ids = tags_ids - db_tag_ids
-
-    tags_to_delete = project.tags.where(id: old_tag_ids)
-
-    tags_to_delete.each do |tag|
-      project.tags.delete(tag)
-    end
-
-    new_tag_ids.each do |tag_id|
-      project.tags.push(Tag.find_by_id(tag_id))
-    end
-
-    redirect_to edit_user_registration_path, flash: {success: "Skills updated successfully."}
-  end
-
   private
 
   def set_project
@@ -72,6 +51,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :url, :description)
+    params.require(:project).permit(:name, :url, :description, :tags)
   end
 end
