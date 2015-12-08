@@ -36,36 +36,16 @@ before_filter :configure_account_update_params, only: [:update]
   #   super
   # end
 
-  def update_skills
-    skills_ids = params[:skills].split(',').map(&:to_i)
-    db_skill_ids = current_user.skills.map(&:id)
-
-    old_skill_ids = db_skill_ids - skills_ids
-    new_skill_ids = skills_ids - db_skill_ids
-
-    skills_to_delete = current_user.skills.where(id: old_skill_ids)
-
-    skills_to_delete.each do |skill|
-      current_user.skills.delete(skill)
-    end
-
-    new_skill_ids.each do |skill_id|
-      current_user.skills.push(Skill.find_by_id(skill_id))
-    end
-
-    redirect_to edit_user_registration_path, flash: {success: "Skills updated successfully."}
-  end
-
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.for(:sign_up).push(:name, :location, :company, :description, :twitter, :github)
+    devise_parameter_sanitizer.for(:sign_up).push(:name, :location, :company, :twitter, :github)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.for(:account_update).push(:name, :location, :company, :description, :twitter, :github)
+    devise_parameter_sanitizer.for(:account_update).push(:name, :location, :company, :twitter, :github)
   end
 
   def update_resource(resource, params)

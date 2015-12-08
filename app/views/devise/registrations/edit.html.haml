@@ -4,13 +4,6 @@
     %h2 Edit your account settings, skills and more.
 
   %section.u-well
-    %h2 Skills
-    = form_tag(controller: 'users/registrations', action: 'update_skills', method: "post") do |f|
-      = text_field_tag 'skills', nil, id: 'js-skills', data: {selectize_value: current_user.skills}
-      %br/
-      = submit_tag "Save changes", class: "Button Button--red Button--block"
-
-  %section.u-well
     %h2 Profile
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { autocomplete: "off", method: :put }) do |f|
       = devise_error_messages!
@@ -30,11 +23,6 @@
       .input-group
         = f.label :github
         = f.text_field :github
-
-      .input-group
-        = f.label :description
-        %i (You can use markdown)
-        = f.text_area :description
 
       .actions
         = f.submit "Update profile", class: "Button Button--red Button--block"

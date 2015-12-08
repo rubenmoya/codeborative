@@ -1,0 +1,18 @@
+.u-container
+  %section.Search
+    %h1 Search projects
+    = form_for :search, method: :get do |f|
+      .input-group
+        = f.text_field :tags, placeholder: "Tags separated by comma"
+
+  %section.ProjectList
+    - @projects.each do |project|
+      %article.Project
+        %section.Project-info.u-clear
+          %h1=link_to project.name, project
+          %p
+            =icon('github-alt')
+            =link_to "View on Github", project.url
+          %p
+            =icon('user')
+            =project.user.name

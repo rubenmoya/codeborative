@@ -10,15 +10,16 @@ Rails.application.routes.draw do
 
   root 'statics#index'
 
-  get '/search(/:skills)' => 'search#index', as: :search
+  get '/search(/:skills)' => 'projects#index', as: :search
 
-  get '/skills' => 'skills#index'
-  post '/skills/new' => 'skills#create'
+  get '/tags' => 'tags#index'
+  post '/tags/new' => 'tags#create'
 
-
-  devise_scope :user do
-    post '/update_skills' => 'users/registrations#update_skills'
+  resources :projects do
+    post '/update_tags' => 'projects#update_tags'
   end
+
+  get '/my_projects' => 'projects#my_projects'
 
   devise_for :users,
     path: '/',

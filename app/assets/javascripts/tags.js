@@ -1,5 +1,5 @@
 $(document).on('page:change', function(){
-  $("#js-skills").selectize({
+  $("#js-tags").selectize({
     plugins: ['remove_button'],
     delimiter: ',',
     persist: false,
@@ -25,7 +25,7 @@ $(document).on('page:change', function(){
     },
     create: function (input, callback) {
         $.ajax({
-            url: '/skills/new',
+            url: '/tags/new',
             data: { 'text': input },
             type: 'POST',
             dataType: 'json',
@@ -43,7 +43,7 @@ $(document).on('page:change', function(){
     load: function (query, callback) {
         if (!query.length) return callback();
         $.ajax({
-            url: '/skills',
+            url: '/tags',
             dataType: 'json',
             data: {
               q: query

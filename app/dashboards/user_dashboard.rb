@@ -8,8 +8,7 @@ class UserDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    user_skills: Field::HasMany,
-    skills: Field::HasMany,
+    projects: Field::HasMany,
     id: Field::Number,
     email: Field::String,
     encrypted_password: Field::String,
@@ -39,8 +38,6 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    #:user_skills,
-    #:skills,
     :id,
     :email,
     :name,
@@ -57,7 +54,7 @@ class UserDashboard < Administrate::BaseDashboard
     :description,
     :twitter,
     :github,
-    :user_skills,
+    :projects
   ]
 
   # FORM_ATTRIBUTES
@@ -71,19 +68,7 @@ class UserDashboard < Administrate::BaseDashboard
     :description,
     :twitter,
     :github,
-    :user_skills,
-    #:skills,
-    # :last_sign_in_at,
-    # :current_sign_in_ip,
-    # :last_sign_in_ip,
-    #:encrypted_password,
-    #:reset_password_token,
-    #:reset_password_sent_at,
-    #:remember_created_at,
-    #:sign_in_count,
-    #:current_sign_in_at,
-    #:provider,
-    #:uid,
+    :projects
   ]
 
   # Overwrite this method to customize how users are displayed

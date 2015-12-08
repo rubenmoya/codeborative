@@ -1,6 +1,6 @@
-class CreateSkills < ActiveRecord::Migration
+class CreateTags < ActiveRecord::Migration
   def change
-    create_table :skills do |t|
+    create_table :tags do |t|
       t.string :text
 
       t.timestamps null: false

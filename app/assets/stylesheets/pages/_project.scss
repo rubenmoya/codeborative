@@ -1,4 +1,4 @@
-.UserList {
+.ProjectList {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -11,7 +11,7 @@
   }
 }
 
-.User {
+.Project {
   width: 100%;
   padding: 1rem 1.4rem;
   background: white;
@@ -45,4 +45,44 @@
     float: left;
     margin-right: 10px;
   }
+}
+
+.Project--left {
+  width: 30%;
+  float: left;
+}
+.Project--right {
+  width: 70%;
+  float: left;
+}
+
+.Project-userpic {
+  display: block;
+  border-radius: 4px;
+  width: 230px;
+  height: 230px;
+}
+
+.Project-usersocial {
+  list-style: none;
+  padding: 0;
+
+  i {
+    margin-right: 4px;
+  }
+
+  li {
+    color: $font-color-primary;
+    font-size: .85rem;
+    text-overflow: ellipsis;
+  }
+}
+
+.Project-description {
+  text-align: justify;
+  font-size: .9rem;
+}
+
+.Project-buttons {
+  text-align: right;
 }

@@ -36,8 +36,3 @@
         %h2 Description
         %div.Profile-description
           =simple_format(@user.description)
-
-        %h2 My skills
-        %div.Profile-skills
-          - @user.skills.each do |skill|
-            %span.Skill=skill.text
