@@ -16,9 +16,9 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = current_user.projects.new(project_params.except(:tags))
+    @project = current_user.projects.new(project_params)
 
-    if @project.save && @project.update_tags(project_params[:tags])
+    if @project.save
       redirect_to @project, flash: { success: "Project has been created."}
     else
       render :new, flash: { danger: "Project has not been created."}
@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if @project.update(project_params.except(:tags)) && @project.update_tags(project_params[:tags])
+    if @project.update(project_params)
       redirect_to @project, flash: { success: "Project has been updated."}
     else
       render :new, flash: { danger: "Project has not been updated."}
@@ -51,6 +51,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :url, :description, :tags)
+    params.require(:project).permit(:name, :url, :description, :tags_list)
   end
 end
