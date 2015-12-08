@@ -8,10 +8,15 @@ class ProjectDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    user: Field::BelongsTo,
+    projecttags: Field::HasMany,
+    tags: Field::HasMany,
     id: Field::Number,
     name: Field::String,
+    description: Field::Text,
     url: Field::String,
-    user: Field::BelongsTo,
+    created_at: Field::DateTime,
+    updated_at: Field::DateTime,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -23,17 +28,12 @@ class ProjectDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :url,
-    :user
+    :user,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [
-    :id,
-    :name,
-    :url,
-    :user
-  ]
+  SHOW_PAGE_ATTRIBUTES = ATTRIBUTE_TYPES.keys
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
@@ -41,13 +41,14 @@ class ProjectDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :url,
-    :user
+    :description,
+    :user,
   ]
 
-  # Overwrite this method to customize how users are displayed
+  # Overwrite this method to customize how projects are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(user)
-  #   "User ##{user.id}"
+  # def display_resource(project)
+  #   "Project ##{project.id}"
   # end
 end

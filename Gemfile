@@ -22,7 +22,7 @@ gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
-gem "administrate", "~> 0.1.1"
+gem "administrate", git: "https://github.com/thoughtbot/administrate.git"
 
 group :development, :test do
   gem 'byebug'

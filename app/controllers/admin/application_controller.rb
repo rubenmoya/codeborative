@@ -5,17 +5,10 @@
 # If you want to add pagination or other controller-level concerns,
 # you're free to overwrite the RESTful controller actions.
 class Admin::ApplicationController < Administrate::ApplicationController
-  before_action :authenticate_user!
-  before_action :authenticate_admin
+  before_filter :authenticate_admin
 
   def authenticate_admin
-    redirect_to '/', alert: 'Not authorized.' unless current_user && access_whitelist
-  end
-
-  private
-
-  def access_whitelist
-    current_user.admin?
+    # TODO Add authentication logic here.
   end
 
   # Override this value to specify the number of elements to display at a time
