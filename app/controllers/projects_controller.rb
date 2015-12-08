@@ -16,9 +16,9 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = current_user.projects.new(project_params)
+    @project = current_user.projects.new(project_params.except(:tags))
 
-    if @project.save
+    if @project.save && @project.update_tags(project_params[:tags])
       redirect_to @project, flash: { success: "Project has been created."}
     else
       render :new, flash: { danger: "Project has not been created."}
