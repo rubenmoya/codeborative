@@ -42,27 +42,11 @@ ActiveRecord::Schema.define(version: 20151209093123) do
   add_index "projecttags", ["project_id"], name: "index_projecttags_on_project_id"
   add_index "projecttags", ["tag_id"], name: "index_projecttags_on_tag_id"
 
-  create_table "skills", force: :cascade do |t|
-    t.string   "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "tags", force: :cascade do |t|
     t.string   "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "user_skills", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "skill_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "user_skills", ["skill_id"], name: "index_user_skills_on_skill_id"
-  add_index "user_skills", ["user_id"], name: "index_user_skills_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -80,7 +64,6 @@ ActiveRecord::Schema.define(version: 20151209093123) do
     t.string   "name"
     t.string   "location"
     t.string   "company"
-    t.text     "description"
     t.string   "twitter"
     t.string   "github"
     t.string   "provider"

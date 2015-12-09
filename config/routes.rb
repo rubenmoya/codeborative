@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       edit: 'profile/edit'
     },
     controllers: {
+      sessions: 'users/sessions',
       registrations: 'users/registrations',
       omniauth_callbacks: 'users/omniauth_callbacks'
     }

@@ -9,12 +9,15 @@
         %li
           =icon('envelope')
           =mail_to @user.email, @user.email
-        %li
-          =icon('github-alt')
-          =link_to clean_url(@user.github), @user.github
-        %li
-          =icon('twitter')
-          =link_to clean_url(@user.twitter), @user.twitter
+
+        - if @user.github.present?
+          %li
+            =icon('github-alt')
+            =link_to clean_url(@user.github), @user.github
+        - if @user.twitter.present?
+          %li
+            =icon('twitter')
+            =link_to clean_url(@user.twitter), @user.twitter
         %li
           =icon('clock-o')
           Joined on #{@user.created_at.strftime('%b, %e %Y')}
@@ -25,7 +28,7 @@
         %p
           =icon('github-alt')
           =link_to "View in github", @project.url
-        - if current_user == @user
+        - unless current_user == @user
           %p
             =icon('user-plus')
             =link_to "Ask for joining the project", friendships_path(:friend_id => @user), :method => :post
