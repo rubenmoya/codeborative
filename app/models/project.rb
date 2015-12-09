@@ -4,10 +4,14 @@ class Project < ActiveRecord::Base
   has_many :tags, through: :projecttags
 
   attr_accessor :tags_list
-  before_validation :update_tags
+  after_save :update_tags
 
   def self.with_tags tag_names
     Project.joins(:tags).where('LOWER(tags.text) IN (?)', tag_names).uniq
+  end
+
+  def my_tags
+    tags.map {|tag| { id: tag.id, text: tag.text} }
   end
 
   private
@@ -28,7 +32,5 @@ class Project < ActiveRecord::Base
     new_tag_ids.each do |tag_id|
       self.tags.push(Tag.find_by_id(tag_id))
     end
-
-    true
   end
 end

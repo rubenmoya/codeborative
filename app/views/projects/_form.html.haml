@@ -13,7 +13,7 @@
 
   .input-group
     =f.label :tags_list
-    =f.text_field :tags_list, id: 'js-tags', data: {selectize_value: @project.tags}
+    =f.text_field :tags_list, id: 'js-tags', data: {selectize_value: @tag_list}
 
   .input-group
     =f.submit "Submit", class: "Button Button--red Button--block"

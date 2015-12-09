@@ -12,16 +12,10 @@ $(document).on('page:change', function(){
       var existingOptions = JSON.parse(this.$input.attr('data-selectize-value'));
       var self = this;
 
-      if(Object.prototype.toString.call(existingOptions) === "[object Array]") {
-          existingOptions.forEach(function (option) {
-            self.addOption(option);
-            self.addItem(option[self.settings.valueField]);
-          });
-      }
-      else if (typeof existingOptions === 'object') {
-          self.addOption(existingOptions);
-          self.addItem(existingOptions[self.settings.valueField]);
-      }
+      existingOptions.forEach(function (option) {
+        self.addOption(option);
+        self.addItem(option[self.settings.valueField]);
+      });
     },
     create: function (input, callback) {
         $.ajax({

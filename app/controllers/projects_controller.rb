@@ -1,13 +1,13 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, except: [:index, :create]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @projects = Project.all
-
    if params[:search]
      tags_names = params[:search][:tags].split(',').map(&:strip).map(&:downcase)
      @projects = Project.with_tags(tags_names)
+   else
+      @projects = Project.all
    end
   end
 
@@ -30,6 +30,7 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @tag_list = @project.my_tags
   end
 
   def update
