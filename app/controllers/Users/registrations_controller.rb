@@ -40,12 +40,12 @@ before_filter :configure_account_update_params, only: [:update]
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.for(:sign_up).push(:name, :location, :company, :twitter, :github)
+    devise_parameter_sanitizer.for(:sign_up).push(:name, :avatar, :location, :company, :twitter, :github)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.for(:account_update).push(:name, :location, :company, :twitter, :github)
+    devise_parameter_sanitizer.for(:account_update).push(:name, :avatar, :location, :company, :twitter, :github)
   end
 
   def update_resource(resource, params)
