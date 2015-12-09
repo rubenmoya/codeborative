@@ -23,10 +23,19 @@
     width: 49%;
   }
 
-  h1 {
-    margin: 0;
-    line-height: 1;
+  header {
+    h1 {
+      margin: 0;
+      line-height: 1;
+      display: inline-block;
+    }
+
+    .buttons {
+      float: right;
+    }
   }
+
+
 
   p {
     font-size: .85rem;

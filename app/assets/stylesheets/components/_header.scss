@@ -1,0 +1,18 @@
+.Header {
+  margin-bottom: 1.8rem;
+  padding-bottom: .5rem;
+  border-bottom: 1px solid #ABAFC3;
+  border-bottom: 1px solid $font-color-subtitle;
+
+  &-links {
+    float: right;
+  }
+
+  &-title {
+    display: inline-block;
+    margin: 0;
+    line-height: 1;
+    font-family: 'Play';
+    font-size: 1.85rem;
+  }
+}

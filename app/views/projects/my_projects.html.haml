@@ -1,11 +1,25 @@
 .u-container
-  =link_to "New project", new_project_path
+  %header.Header
+    %h1.Header-title My projects
+    .Header-links
+      =link_to new_project_path, class: "Button Button--red Button--sm" do
+        =icon('plus')
+        New project
   %section.ProjectList
     - @projects.each do |project|
       %article.Project
-        %section.Project-info.u-clear
+        %header
           %h1=link_to project.name, project
+          .buttons
+            =link_to edit_project_path(project), class: "Button Button--blue Button--sm" do
+              =icon('edit')
+
+            =link_to project_path(project), method: :delete, data: {confirm: "Are you sure?"}, class: "Button Button--red Button--sm" do
+              =icon('trash')
+        %section
           %p
             =icon('github-alt')
             =link_to clean_url(project.url), project.url
-          %p=link_to "Edit", edit_project_path(project)
+          %p
+            =icon('clock-o')
+            Added on #{project.created_at.strftime('%b, %e %Y')}
