@@ -30,6 +30,8 @@ class UserDashboard < Administrate::BaseDashboard
     provider: Field::String,
     uid: Field::String,
     admin: Field::Boolean,
+    password: PasswordField,
+    password_confirmation: PasswordField
   }
 
   # COLLECTION_ATTRIBUTES
@@ -60,6 +62,8 @@ class UserDashboard < Administrate::BaseDashboard
     :twitter,
     :github,
     :admin,
+    :password,
+    :password_confirmation
   ]
 
   # Overwrite this method to customize how users are displayed

@@ -17,20 +17,22 @@ class Project < ActiveRecord::Base
   private
 
   def update_tags
-    tags_ids = self.tags_list.split(',').map(&:to_i)
-    db_tag_ids = self.tags.map(&:id)
+    if self.tags.present?
+      tags_ids = self.tags_list.split(',').map(&:to_i)
+      db_tag_ids = self.tags.map(&:id)
 
-    old_tag_ids = db_tag_ids - tags_ids
-    new_tag_ids = tags_ids - db_tag_ids
+      old_tag_ids = db_tag_ids - tags_ids
+      new_tag_ids = tags_ids - db_tag_ids
 
-    tags_to_delete = self.tags.where(id: old_tag_ids)
+      tags_to_delete = self.tags.where(id: old_tag_ids)
 
-    tags_to_delete.each do |tag|
-      self.tags.delete(tag)
-    end
+      tags_to_delete.each do |tag|
+        self.tags.delete(tag)
+      end
 
-    new_tag_ids.each do |tag_id|
-      self.tags.push(Tag.find_by_id(tag_id))
+      new_tag_ids.each do |tag_id|
+        self.tags.push(Tag.find_by_id(tag_id))
+      end
     end
   end
 end
