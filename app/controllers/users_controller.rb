@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :projects, :friends]
+  before_action :set_user
 
   def show
   end
@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def friends
     @friends = current_user.friends
     @requested_friendships = current_user.requested_friendships
+    @pending_friens = current_user.pending_friends
   end
 
   private

@@ -1,12 +1,30 @@
 .u-container
-  %section.FriendsList
-    %h1 Friends
-    - @friends.each do |friend|
-      %article.Friend
-        =friend.name
+  - if @requested_friendships.present?
     %h1 Friend Requests
-    - @requested_friendships.each do |request|
-      %article.Friend
-        = request.email
-        = link_to "Accept", friendship_path(:id => request), :method => "put"
-        = link_to "Decline", friendship_path(:id => request), :method => :delete
+    %ul.FriendsList
+      - @requested_friendships.each do |request|
+        %li.Friend
+          = request.email
+          = link_to "Accept", friendship_path(:id => request), :method => "put"
+          = link_to "Decline", friendship_path(:id => request), :method => :delete
+
+  - if @friends.present?
+    %h1 Friends
+    %ul.FriendsList
+      - @friends.each do |friend|
+        %li.Friend
+          =image_tag(friend.avatar, class: "Friend-pic")
+          .Friend-info
+            %h1=friend.name
+            %p
+              =icon('clock-o')
+              Joined on #{friend.created_at.strftime('%b, %e %Y')}
+  - else
+    %p You don't have any friends yet :(
+
+  - if @pending_friens.present?
+    %h1 Pending friend requests
+    %ul.FriendsList
+      - @pending_friens.each do |request|
+        %li.Friend
+          = request.email

@@ -21,7 +21,6 @@ Rails.application.routes.draw do
     post '/update_tags' => 'projects#update_tags'
   end
 
-  get '/profile' => 'users#show', as: :user_profile
   get '/profile/projects' => 'users#projects', as: :user_projects
   get '/profile/friends' => 'users#friends', as: :user_friends
 
@@ -31,7 +30,7 @@ Rails.application.routes.draw do
       sign_in: 'login',
       sign_out: 'logout',
       sign_up: 'signup',
-      edit: 'profile/edit'
+      edit: 'profile'
     },
     controllers: {
       sessions: 'users/sessions',
