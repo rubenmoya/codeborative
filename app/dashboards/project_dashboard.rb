@@ -9,7 +9,6 @@ class ProjectDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     user: Field::BelongsTo,
-    projecttags: Field::HasMany,
     tags: Field::HasMany,
     id: Field::Number,
     name: Field::String,
