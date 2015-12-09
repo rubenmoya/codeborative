@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
     active_friends | passive_friends
   end
 
+  def last_conversation
+    Message.where(user_id: self.id).order('created_at').last.conversation_id
+  end
+
   def self.from_omniauth auth
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email

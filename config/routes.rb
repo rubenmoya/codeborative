@@ -21,8 +21,9 @@ Rails.application.routes.draw do
     post '/update_tags' => 'projects#update_tags'
   end
 
-  get '/profile/projects' => 'users#projects', as: :user_projects
-  get '/profile/friends' => 'users#friends', as: :user_friends
+  resources :conversations, only: [] do
+    resources :messages
+  end
 
   devise_for :users,
     path: '/',
@@ -37,4 +38,8 @@ Rails.application.routes.draw do
       registrations: 'users/registrations',
       omniauth_callbacks: 'users/omniauth_callbacks'
     }
+
+  get '/profile/projects' => 'users#projects', as: :user_projects
+  get '/profile/friends' => 'users#friends', as: :user_friends
+  get '/profilemailbox' => 'users#mailbox', as: :user_mailbox
 end

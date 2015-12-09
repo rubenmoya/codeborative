@@ -1,0 +1,30 @@
+.u-container
+  %h1 Mailbox
+  - if @over_ten
+    =# link_to "Show Previous", "?m=all"
+  .Mailbox
+    %nav
+      %ul
+        - @conversations.each do |conversation|
+          - if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id
+            - if conversation.sender_id == current_user.id
+              - recipient = User.find(conversation.recipient_id)
+            - else
+              - recipient = User.find(conversation.sender_id)
+            %li= link_to recipient.name,   conversation_messages_path(conversation)
+    %section
+      .MessageList
+        - @messages.each do |message|
+          - if message.body
+            .Message
+              = image_tag(message.user.avatar, class: "Message-pic")
+              .Message-body
+                %h1
+                  = message.user.name
+                  %span.date= message.message_time
+                .text= message.body
+
+      = form_for [@conversation, @message], html: {class: "MessageForm"} do |f|
+        = f.text_area :body, class: "form-control", placeholder: "Write your message..."
+        = f.text_field :user_id, value: current_user.id, type: "hidden"
+        = f.submit "Add Reply", class: "Button Button--red Button--sm"

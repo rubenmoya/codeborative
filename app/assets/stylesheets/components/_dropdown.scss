@@ -1,0 +1,27 @@
+.Dropdown {
+  ul {
+    position: absolute;
+    display: none;
+    list-style: none;
+    background: #FFF;
+    border-radius: 2px;
+    box-shadow: 0 4px 6px 1px rgba(50, 50, 50, 0.14);
+    padding: .4rem .8rem;
+    z-index: 100;
+
+    li a {
+      color: $font-color-primary;
+
+      &:hover {
+        color: $font-color-secondary;
+      }
+    }
+  }
+
+
+  &:hover {
+    ul {
+      display: block;
+    }
+  }
+}
