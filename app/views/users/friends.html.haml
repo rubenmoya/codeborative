@@ -1,0 +1,12 @@
+.u-container
+  %section.FriendsList
+    %h1 Friends
+    - @friends.each do |friend|
+      %article.Friend
+        =friend.name
+    %h1 Friend Requests
+    - @requested_friendships.each do |request|
+      %article.Friend
+        = request.email
+        = link_to "Accept", friendship_path(:id => request), :method => "put"
+        = link_to "Decline", friendship_path(:id => request), :method => :delete

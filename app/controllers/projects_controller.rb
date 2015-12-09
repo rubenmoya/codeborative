@@ -49,10 +49,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def my_projects
-    @projects = Project.where(user_id: current_user.id)
-  end
-
   private
 
   def set_project

@@ -15,11 +15,15 @@ Rails.application.routes.draw do
   get '/tags' => 'tags#index'
   post '/tags/new' => 'tags#create'
 
+  resources :friendships, only: [:create, :update, :destroy]
+
   resources :projects do
     post '/update_tags' => 'projects#update_tags'
   end
 
-  get '/my_projects' => 'projects#my_projects'
+  get '/profile' => 'users#show', as: :user_profile
+  get '/profile/projects' => 'users#projects', as: :user_projects
+  get '/profile/friends' => 'users#friends', as: :user_friends
 
   devise_for :users,
     path: '/',
@@ -33,6 +37,4 @@ Rails.application.routes.draw do
       registrations: 'users/registrations',
       omniauth_callbacks: 'users/omniauth_callbacks'
     }
-
-  get '/profile/:id' => 'users#show', as: :user_profile
 end
