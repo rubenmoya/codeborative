@@ -40,6 +40,14 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def destroy
+    if @project.destroy
+      redirect_to my_projects_path, flash: { success: "Project has been deleted."}
+    else
+      render :new, flash: { danger: "Project has not been deleted."}
+    end
+  end
+
   def my_projects
     @projects = Project.where(user_id: current_user.id)
   end
