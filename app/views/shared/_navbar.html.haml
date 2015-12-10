@@ -4,9 +4,8 @@
     Codeborative
 
   %ul.TopMenu
-    %li.TopMenu-item=link_to "Search projects", projects_path
-
     - if user_signed_in?
+      %li.TopMenu-item=link_to "Search projects", projects_path
       %li.TopMenu-item.Dropdown#js-notifications
         %span#js-notifications-link
           =icon('bell')
@@ -14,7 +13,7 @@
 
         %ul#js-notifications-items
           %li No notifications
-          
+
       %li.TopMenu-item.Dropdown
         =link_to '#' do
           =icon('user')

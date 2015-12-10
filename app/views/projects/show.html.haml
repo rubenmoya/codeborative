@@ -28,7 +28,7 @@
         %p
           =icon('github-alt')
           =link_to "View in github", @project.url
-        - unless current_user == @user
+        - unless current_user == @user || current_user.are_friends(@user)
           %p
             =icon('user-plus')
             =link_to "Ask for joining the project", friendships_path(:friend_id => @user), :method => :post
