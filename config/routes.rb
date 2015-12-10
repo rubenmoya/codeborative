@@ -24,7 +24,13 @@ Rails.application.routes.draw do
   resources :conversations, only: [:create] do
     resources :messages, only: [:create]
   end
-  
+
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
+
   get '/messages(/:conversation_id)' => 'messages#index', as: :user_messages
 
   devise_for :users,

@@ -39,10 +39,11 @@
     float: left;
     margin: 0 10px;
 
-    a {
+    a, span {
       color: $font-color-subtitle;
       font-size: .9rem;
       transition: .4s;
+      cursor: pointer;
 
       &:hover {
         color: $font-color-title;

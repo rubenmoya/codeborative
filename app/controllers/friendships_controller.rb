@@ -1,9 +1,15 @@
 class FriendshipsController < ApplicationController
 
   def create
-    @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
+    @friendship = current_user.friendships.build(friend_id: params[:friend_id])
 
     if @friendship.save
+
+      #create Notification
+
+      Notification.create(recipient: User.find(params[:friend_id].to_i), actor: current_user, action: "sended", notifiable: @friendship)
+
+
       redirect_to :back, flash: {success: "Friend request sent." }
     else
       redirect_to :back, flash: {success: "Unable to request friendship." }

@@ -5,12 +5,12 @@
       - @requested_friendships.each do |request|
         %li.Friend
           = request.email
-          = link_to "Accept", friendship_path(:id => request), :method => "put"
-          = link_to "Decline", friendship_path(:id => request), :method => :delete
+          = link_to "Accept", friendship_path(:id => request), :method => "put", class: "Button Button--green Button--sm"
+          = link_to "Decline", friendship_path(:id => request), :method => :delete, class: "Button Button--red Button--sm"
 
-  - if @friends.present?
-    %h1 Friends
-    %ul.FriendsList
+  %h1 Friends
+  %ul.FriendsList
+    - if @friends.present?
       - @friends.each do |friend|
         %li.Friend
           =image_tag(friend.avatar, class: "Friend-pic")
@@ -19,10 +19,10 @@
             %p
               =icon('clock-o')
               Joined on #{friend.created_at.strftime('%b, %e %Y')}
-  - else
-    %p You don't have any friends yet :(
+    - else
+      %p You don't have any friends yet :(
 
-  - if @pending_friens.present?
+  - if @pending_friends.present?
     %h1 Pending friend requests
     %ul.FriendsList
       - @pending_friens.each do |request|

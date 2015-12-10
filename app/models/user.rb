@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :projects
+  has_many :notifications, foreign_key: :recipient_id
 
   has_many :friendships
   has_many :passive_friendships, :class_name => "Friendship", :foreign_key => "friend_id"

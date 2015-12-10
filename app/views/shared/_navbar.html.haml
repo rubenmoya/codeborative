@@ -4,17 +4,24 @@
     Codeborative
 
   %ul.TopMenu
-    %li.TopMenu-item=link_to "Home", root_path
     %li.TopMenu-item=link_to "Search projects", projects_path
+    %li.TopMenu-item.Dropdown#js-notifications
+      %span#js-notifications-link
+        =icon('bell')
+        %span#js-notifications-unread-count
+
+      %ul#js-notifications-items
+        %li No notifications
+
     - if user_signed_in?
-      %li.TopMenu-item=link_to "Mailbox", user_messages_path(current_user.last_conversation)
       %li.TopMenu-item.Dropdown
         =link_to '#' do
-          =current_user.name
+          =icon('user')
           =icon('caret-down')
 
         %ul
           %li=link_to "Profile", edit_user_registration_path
+          %li=link_to "Mailbox", user_messages_path(current_user.last_conversation)
           %li=link_to "Projects", user_projects_path
           %li=link_to "Friends", user_friends_path
           - if current_user.admin?
