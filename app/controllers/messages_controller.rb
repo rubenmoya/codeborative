@@ -19,12 +19,7 @@ class MessagesController < ApplicationController
     @message = @conversation.messages.new(message_params)
 
     if @message.save
-      ActionCable.server.broadcast 'messages',
-        body: @message.body,
-        time: @message.message_time,
-        user: User.find(message_params[:user_id])
-
-      head :ok
+      ActionCable.server.broadcast "conversations:#{@conversation.id}:messages", message: render(partial: 'messages/message', locals: { message: @message })
     end
   end
 

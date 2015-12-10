@@ -21,8 +21,8 @@ Rails.application.routes.draw do
     post '/update_tags' => 'projects#update_tags'
   end
 
-  resources :conversations, only: [:create] do
-    resources :messages, only: [:create]
+  resources :conversations do
+    resources :messages
   end
 
   resources :notifications do

@@ -1,19 +1,25 @@
-App.messages = App.cable.subscriptions.create 'MessagesChannel',
+App.messages = App.cable.subscriptions.create "MessagesChannel",
+  collection: -> $("[data-channel='messages']")
+
+  connected: ->
+    setTimeout =>
+      @followCurrentConversation()
+      @installPageChangeCallback()
+    , 1000
+
   received: (data) ->
-    $('.MessageList').append @renderMessage(data)
-    $('#js-message-input').val("")
+    @collection().append(data.message)
     chatToBottom()
 
-  renderMessage: (data) ->
-    "<div class='Message'>
-      <img class='Message-pic' src='#{data.user.avatar}' />
-      <div class='Message-body'>
-        <h1>
-          #{data.user.name}
-          <span class='date'>#{data.time}</span>
-        </h1>
-        <div class='text'>
-          #{data.body}
-        </div>
-      </div>
-    </div>"
+  followCurrentConversation: ->
+    if conversationId = @collection().data('conversation-id')
+      console.log("it works")
+      @perform 'follow', conversation_id: conversationId
+    else
+      console.log("it doesnt work")
+      @perform 'unfollow'
+
+  installPageChangeCallback: ->
+    unless @installedPageChangeCallback
+      @installedPageChangeCallback = true
+      $(document).on 'page:change', -> App.comments.followCurrentConversation()

@@ -1,0 +1,8 @@
+.Message
+  =image_tag(message.user.avatar, class: "Message-pic")
+  .Message-body
+    %h1
+      = message.user.name
+      %span.date
+        = message.created_at
+    .text= message.body
