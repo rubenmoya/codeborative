@@ -5,15 +5,16 @@
 
   %ul.TopMenu
     %li.TopMenu-item=link_to "Search projects", projects_path
-    %li.TopMenu-item.Dropdown#js-notifications
-      %span#js-notifications-link
-        =icon('bell')
-        %span#js-notifications-unread-count
-
-      %ul#js-notifications-items
-        %li No notifications
 
     - if user_signed_in?
+      %li.TopMenu-item.Dropdown#js-notifications
+        %span#js-notifications-link
+          =icon('bell')
+          %span#js-notifications-unread-count
+
+        %ul#js-notifications-items
+          %li No notifications
+          
       %li.TopMenu-item.Dropdown
         =link_to '#' do
           =icon('user')
