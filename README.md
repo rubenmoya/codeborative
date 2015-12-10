@@ -12,3 +12,7 @@ And in the other hand, if you want some help with your project and you're willin
 ## Technologies used
 
 The project is built with Ruby on Rails and a bunch of gems!
+
+## How to use
+
+First of all, clone the repository, then make a `bundle install`, after it's finished you have to run: `redis-server`, `./bin/cable`, `rails s`
