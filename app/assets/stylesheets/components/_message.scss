@@ -45,7 +45,7 @@
   margin-top: 1rem;
   position: relative;
 
-  textarea {
+  input[type="text"] {
     background: white;
     border: 1px solid lighten($font-color-subtitle, 20%);
     padding: .4rem .8rem;
@@ -60,9 +60,9 @@
   }
 
   input[type="submit"] {
-    top: 20px;
+    top: 13px;
     position: absolute;
-    right: 10px;
+    right: 0;
   }
 
 }

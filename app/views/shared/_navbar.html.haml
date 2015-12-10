@@ -7,7 +7,7 @@
     %li.TopMenu-item=link_to "Home", root_path
     %li.TopMenu-item=link_to "Search projects", projects_path
     - if user_signed_in?
-      %li.TopMenu-item=link_to "Mailbox", conversation_messages_path(current_user.last_conversation)
+      %li.TopMenu-item=link_to "Mailbox", user_messages_path(current_user.last_conversation)
       %li.TopMenu-item.Dropdown
         =link_to '#' do
           =current_user.name

@@ -25,15 +25,17 @@ class MessagesController < ApplicationController
     @message = @conversation.messages.new
   end
 
-  def new
-    @message = @conversation.messages.new
-  end
-
   def create
     @message = @conversation.messages.new(message_params)
 
     if @message.save
-      redirect_to conversation_messages_path(@conversation)
+      # redirect_to conversation_messages_path(@conversation)
+      ActionCable.server.broadcast 'messages',
+        body: @message.body,
+        time: @message.message_time,
+        user: User.find(message_params[:user_id])
+
+      head :ok
     end
   end
 

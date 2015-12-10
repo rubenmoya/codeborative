@@ -16,12 +16,9 @@
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks
+//= require channels
 //= require_tree .
 
-$(document).on('page:change', function(){
-  var messageList = $('.MessageList');
-  if(messageList.length > 0) {
-    var height = messageList[0].scrollHeight;
-    messageList.scrollTop(height);
-  }
-});
+this.App = {};
+
+App.cable = Cable.createConsumer('ws://127.0.0.1:28080');

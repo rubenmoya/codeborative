@@ -21,9 +21,11 @@ Rails.application.routes.draw do
     post '/update_tags' => 'projects#update_tags'
   end
 
-  resources :conversations, only: [] do
-    resources :messages
+  resources :conversations, only: [:create] do
+    resources :messages, only: [:create]
   end
+  
+  get '/messages(/:conversation_id)' => 'messages#index', as: :user_messages
 
   devise_for :users,
     path: '/',
