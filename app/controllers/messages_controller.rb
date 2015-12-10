@@ -3,26 +3,16 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @messages = @conversation.messages
-    partner_id = @conversation.recipient_id == current_user.id ? @conversation.sender_id : @conversation.recipient_id
-    @partner = User.find(partner_id).name
-    @conversations = Conversation.all
+    @friends = current_user.friends
 
-    if @messages.length > 10
-      @over_ten = true
-      @messages = @messages[-10..-1]
+    if params[:conversation_id]
+      if @conversation.present?
+        @messages = @conversation.messages
+        @message = @conversation.messages.new
+      else
+        redirect_to user_messages_path
+      end
     end
-
-    if params[:m]
-      @over_ten = false
-      @messages = @conversation.messages
-    end
-
-    if @messages.last &&  @messages.last.user_id != current_user.id
-      @messages.last.read = true;
-    end
-
-    @message = @conversation.messages.new
   end
 
   def create
@@ -42,7 +32,7 @@ class MessagesController < ApplicationController
   private
 
   def set_conversation
-    @conversation = Conversation.find(params[:conversation_id])
+    @conversation = Conversation.find_by_id(params[:conversation_id])
   end
 
   def message_params

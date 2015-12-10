@@ -18,7 +18,13 @@ class User < ActiveRecord::Base
   end
 
   def last_conversation
-    Message.where(user_id: self.id).order('created_at').last.conversation_id
+    last_conversation = Message.where(user_id: self.id).order('created_at').last
+
+    last_conversation ? last_conversation.conversation_id : nil
+  end
+
+  def has_conversation user_id
+    Conversation.between(self.id, user_id).present?
   end
 
   def self.from_omniauth auth

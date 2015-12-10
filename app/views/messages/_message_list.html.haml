@@ -1,0 +1,16 @@
+.MessageList
+  - if @messages.present? && @messages.size > 0
+    - @messages.each do |message|
+      - if message.body
+        .Message
+          = image_tag(message.user.avatar, class: "Message-pic")
+          .Message-body
+            %h1
+              = message.user.name
+              %span.date= message.message_time
+            .text= message.body
+
+= form_for [@conversation, @message], remote: true, html: {class: "MessageForm"} do |f|
+  = f.text_field :body, id: "js-message-input", placeholder: "Write your message..."
+  = f.text_field :user_id, value: current_user.id, type: "hidden"
+  = f.submit "Add Reply", class: "Button Button--red Button--sm"

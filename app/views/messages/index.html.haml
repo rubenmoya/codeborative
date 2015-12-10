@@ -1,30 +1,14 @@
 .u-container
   %h1 Mailbox
-  - if @over_ten
-    =# link_to "Show Previous", "?m=all"
   .Mailbox
     %nav
       %ul
-        - @conversations.each do |conversation|
-          - if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id
-            - if conversation.sender_id == current_user.id
-              - recipient = User.find(conversation.recipient_id)
-            - else
-              - recipient = User.find(conversation.sender_id)
-            %li= link_to recipient.name, user_messages_path(conversation)
-    %section
-      .MessageList
-        - @messages.each do |message|
-          - if message.body
-            .Message
-              = image_tag(message.user.avatar, class: "Message-pic")
-              .Message-body
-                %h1
-                  = message.user.name
-                  %span.date= message.message_time
-                .text= message.body
+        - @friends.each do |friend|
+          %li= link_to friend.name, conversations_path(sender_id: current_user.id, recipient_id: friend.id), method: 'post'
 
-      = form_for [@conversation, @message], remote: true, html: {class: "MessageForm"} do |f|
-        = f.text_field :body, id: "js-message-input", placeholder: "Write your message..."
-        = f.text_field :user_id, value: current_user.id, type: "hidden"
-        = f.submit "Add Reply", class: "Button Button--red Button--sm"
+    %section
+      - if params[:conversation_id]
+        = render 'message_list'
+
+      - else
+        You don't have any conversations yet, open a new one by clickin on a friend in the right list!
