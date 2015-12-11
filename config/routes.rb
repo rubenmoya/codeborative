@@ -31,6 +31,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :documents, only: [:show, :create, :update, :destroy]
+
   get '/messages(/:conversation_id)' => 'messages#index', as: :user_messages
 
   devise_for :users,
