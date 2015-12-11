@@ -2,12 +2,6 @@
   - if @messages.present? && @messages.size > 0
     - @messages.each do |message|
       - if message.body
-        .Message
-          = image_tag(message.user.avatar, class: "Message-pic")
-          .Message-body
-            %h1
-              = message.user.name
-              %span.date= message.message_time
-            .text= message.body
+        = render partial: 'message', locals: {message: message}
 
 = render 'new'
