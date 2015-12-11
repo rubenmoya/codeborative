@@ -13,10 +13,8 @@ App.messages = App.cable.subscriptions.create "MessagesChannel",
 
   followCurrentConversation: ->
     if conversationId = @collection().data('conversation-id')
-      console.log("it works")
       @perform 'follow', conversation_id: conversationId
     else
-      console.log("it doesnt work")
       @perform 'unfollow'
 
   installPageChangeCallback: ->

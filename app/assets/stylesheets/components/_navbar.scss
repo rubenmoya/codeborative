@@ -72,3 +72,10 @@
     }
   }
 }
+
+.notifications-count {
+  padding: .1rem .5rem;
+  background: darken($background-primary, 5%);
+  border: 1px solid darken($background-primary, 10%);
+  border-radius: 2px;
+}
