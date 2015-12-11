@@ -19,7 +19,8 @@ class MessagesController < ApplicationController
     @message = @conversation.messages.new(message_params)
 
     if @message.save
-      ActionCable.server.broadcast "conversations:#{@conversation.id}:messages", message: render(partial: 'messages/message', locals: { message: @message })
+      # Use Pusher here
+      #ActionCable.server.broadcast "conversations:#{@conversation.id}:messages", message: render(partial: 'messages/message', locals: { message: @message })
     end
   end
 

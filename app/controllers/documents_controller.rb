@@ -18,7 +18,7 @@ class DocumentsController < ApplicationController
 
   def update
     if @document.update(text: params[:text])
-      ActionCable.server.broadcast "document:#{@document.id}", @document
+      # Use Pusher here.
     end
   end
 

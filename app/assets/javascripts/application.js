@@ -17,5 +17,4 @@
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks
-//= require channels
 //= require_tree .
