@@ -7,7 +7,7 @@ class Notifications
     $("#js-notifications-link").on "click", @handleClick
 
     $.ajax(
-      url: "notifications.json",
+      url: "/notifications.json",
       dataType: "JSON",
       method: "GET",
       success: @handleSuccess
