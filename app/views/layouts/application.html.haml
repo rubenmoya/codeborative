@@ -4,6 +4,7 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Codeborative
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    %script{:src => "https://js.pusher.com/3.0/pusher.min.js"}
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body

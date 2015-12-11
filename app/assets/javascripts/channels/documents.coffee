@@ -2,7 +2,7 @@ App.documents = App.cable.subscriptions.create "DocumentsChannel",
   document: -> $("[data-channel='document']")
 
   connected: ->
-    $(document).on "keypress", $("[data-channel='document']"), =>
+    $(document).on "keyup", "[data-channel='document']", =>
       $.ajax(
         url: "/documents/" + @document().data('document-id'),
         dataType: "JSON",

@@ -138,6 +138,7 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
+    httpclient (2.7.0.1)
     i18n (0.7.0)
     inline_svg (0.6.1)
       activesupport (>= 4.0.4)
@@ -191,6 +192,11 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     puma (2.15.3)
+    pusher (0.15.2)
+      httpclient (~> 2.5)
+      multi_json (~> 1.0)
+      pusher-signature (~> 0.1.8)
+    pusher-signature (0.1.8)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
@@ -291,6 +297,7 @@ DEPENDENCIES
   nprogress-rails (~> 0.1.6.7)
   omniauth-github (~> 1.1, >= 1.1.2)
   puma
+  pusher
   quiet_assets (~> 1.1)
   rails (= 4.2.4)
   sass-rails (~> 5.0)

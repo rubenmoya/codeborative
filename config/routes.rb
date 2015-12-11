@@ -52,4 +52,6 @@ Rails.application.routes.draw do
   get '/profile/projects' => 'users#projects', as: :user_projects
   get '/profile/friends' => 'users#friends', as: :user_friends
   get '/profilemailbox' => 'users#mailbox', as: :user_mailbox
+
+  match '/pusher/auth' => 'pusher#auth', via: :post
 end
