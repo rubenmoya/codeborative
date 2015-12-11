@@ -2,10 +2,12 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    - if user_signed_in?
+      %meta{name: 'user_id', id: current_user.id}/
     %title Codeborative
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     %script{:src => "https://js.pusher.com/3.0/pusher.min.js"}
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', params[:controller], 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
     = render 'shared/navbar'

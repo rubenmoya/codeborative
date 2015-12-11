@@ -19,8 +19,17 @@ class MessagesController < ApplicationController
     @message = @conversation.messages.new(message_params)
 
     if @message.save
-      # Use Pusher here
-      #ActionCable.server.broadcast "conversations:#{@conversation.id}:messages", message: render(partial: 'messages/message', locals: { message: @message })
+      to_send = {
+        message: {
+          body: @message.body,
+          created_at: @message.created_at
+        },
+        user: {
+          name: @message.user.name,
+          avatar: @message.user.avatar
+        }
+      }
+      Pusher.trigger("messages-channel", "update-chat-#{@conversation.id}", to_send)
     end
   end
 

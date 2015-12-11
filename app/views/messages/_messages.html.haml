@@ -1,4 +1,4 @@
-.MessageList{"data-channel" => "messages", "data-conversation-id" => @conversation.id}
+.MessageList{"data-conversation-id" => @conversation.id}
   - if @messages.present? && @messages.size > 0
     - @messages.each do |message|
       - if message.body
