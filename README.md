@@ -2,17 +2,16 @@ Hi! I'm [@rubenmoya](http://twitter.com/@rubenmoya_) and this is my project at [
 
 ## What is Codeborative?
 
-Do you have a personal project and want to share your knowledge? Are you learning a new technology and looking for mentorship? Codeborative is your place!
+Do you have a personal project and want to share your knowledge? Are you learning a new technology and looking for mentorship? **Codeborative** is your place!
 
-In Codeborative you can search for a mentor based on the technology you want to learn in exchange of helping him with his project, both of you win!
-
-And in the other hand, if you want some help with your project and you're willing to teach your helper, this is your web!
-
+In **Codeborative** you can **search for a mentor** based on the technology you want to learn. In exchange, you’ll **help him with his project**, both of you win!
 
 ## Technologies used
 
-The project is built with Ruby on Rails and a bunch of gems!
+The project is built with Ruby on Rails, using Haml and SCSS. For real-time notifications and message system I'm using Pusher. And WebRTC for video/audio calls. The authentication system is built with Devise and Omniauth.
 
 ## How to use
 
-First of all, clone the repository, then make a `bundle install`, after it's finished you have to run: `redis-server`, `./bin/cable`, `rails s`
+- Clone the repository
+- `bundle install`
+- `rails s`.
