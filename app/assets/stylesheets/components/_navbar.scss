@@ -176,3 +176,24 @@
   border: 1px solid darken($background-primary, 10%);
   border-radius: 2px;
 }
+
+.github-connect {
+  float: right;
+  border-radius: 1rem;
+  border: 1px solid $font-color-subtitle;
+  color: $font-color-subtitle;
+  padding: 0 .8rem;
+  font-size: .9rem;
+  transition: .4s;
+  margin-top: .5rem;
+
+  i {
+    margin-right: 4px;
+  }
+
+  &:hover {
+    border: 1px solid $font-color-title;
+    color: $font-color-title;
+    text-decoration: none;
+  }
+}
