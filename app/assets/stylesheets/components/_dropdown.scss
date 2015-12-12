@@ -6,14 +6,26 @@
     background: #FFF;
     border-radius: 2px;
     box-shadow: 0 4px 6px 1px rgba(50, 50, 50, 0.14);
-    padding: .4rem .8rem;
     z-index: 100;
+    top:100%;
+    left:0;
+    margin: 0;
+    padding: 0;
+
+    li {
+      float: none;
+      width: 200px;
+      margin: 0;
+      border-bottom: 1px solid darken(#FFF, 5%);
+    }
 
     li a {
       color: $font-color-primary;
+      margin-left: .5rem;
 
       &:hover {
         color: $font-color-secondary;
+        text-decoration: none;
       }
     }
   }

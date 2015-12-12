@@ -1,3 +1,6 @@
+
+$wrapper: 2.25rem calc(50% - 450px - 2rem);
+
 /* --------------------------
  * Font
  * -------------------------- */
@@ -14,6 +17,16 @@
   $font-color-subtitle: #ABAFC3;
 
   $font-color-alizarin: #e74c3c;
+
+
+/* --------------------------
+ * Navbar colors
+ * -------------------------- */
+
+$navbar-background: #3B3E4D;
+$navbar-logo-color: #e74c3c;
+$navbar-font-light: #FBFBFB;
+$navbar-font-dark: #ABAFC3;
 
 
 /* --------------------------

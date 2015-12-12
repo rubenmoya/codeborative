@@ -3,24 +3,23 @@
     =icon('diamond')
     Codeborative
 
-  %ul.TopMenu
+  %button.toggleMenu=icon('bars')
+
+  %ul.Menu
     - if user_signed_in?
-      %li.TopMenu-item=link_to "Search projects", projects_path
-      %li.TopMenu-item.Dropdown#js-notifications
-        %span#js-notifications-link
+      %li=link_to "Search projects", projects_path
+      %li#js-notifications
+        %span.notifications#js-notifications-link
           =icon('bell')
           %span.notifications-count#js-notifications-unread-count 0
 
         %ul#js-notifications-items
           %li No notifications
-
-      %li.TopMenu-item.Dropdown
-        =link_to '#' do
-          =icon('user')
-          =icon('caret-down')
-
+      %li
+        =link_to edit_user_registration_path do
+          =current_user.name
+          =icon('angle-down')
         %ul
-          %li=link_to "Profile", edit_user_registration_path
           %li=link_to "Mailbox", user_messages_path(current_user.last_conversation)
           %li=link_to "Projects", user_projects_path
           %li=link_to "Friends", user_friends_path
@@ -28,7 +27,7 @@
             %li=link_to "Admin panel", admin_root_path
           %li=link_to "Sign out", destroy_user_session_path, :method => :delete
     - else
-      %li.TopMenu-item.TopMenu-item--border
+      %li.TopMenu-item--border
         =link_to user_omniauth_authorize_path(:github) do
           =icon('github-alt')
           Connect with Github
