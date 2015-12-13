@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require selectize
+//= require ace-rails-ap
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks

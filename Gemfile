@@ -18,6 +18,7 @@ gem 'haml-rails', '~> 0.9.0'
 gem 'autoprefixer-rails', '~> 6.1', '>= 6.1.2'
 gem 'font-awesome-sass', '~> 4.4'
 gem 'nprogress-rails', '~> 0.1.6.7'
+gem 'ace-rails-ap'
 
 gem 'devise', '~> 3.5', '>= 3.5.2'
 gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
