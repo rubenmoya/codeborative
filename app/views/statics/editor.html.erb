@@ -1,24 +1,42 @@
-<div class="u-container">
-  <button class="Button Button--red Button--sm" data-end-togetherjs-html="End TogetherJS" id="start-togetherjs" onclick="TogetherJS(this); return false" type="button">
-    Start TogetherJS
-  </button>
-  <pre id="editor">
-    var App = React.createComponent({
-      getInitialState: function() {
-        return {
-          someState: true
-        }
-      }
-    });
-  </pre>
-</div>
+<section class="u-container">
+  <div class="u-well">
+    <header class="u-clear">
+      <select id="js-mode">
+        <option value="html">HTML</option>
+        <option value="javascript" selected>Javascript</option>
+        <option value="php">PHP</option>
+        <option value="ruby">Ruby</option>
+        <option value="css">CSS</option>
+      </select>
+      <button class="Button Button--red Button--sm u-right" data-end-togetherjs-html="End TogetherJS" id="start-togetherjs" onclick="TogetherJS(this); return false" type="button">
+        Start TogetherJS
+      </button>
+    </header>
+    <br>
+    <pre id="editor">
+
+var App = React.createComponent({
+  getInitialState: function() {
+    return {
+      someState: true
+    }
+  }
+});
+
+    </pre>
+  </div>
+</section>
 
 <script>
-  var editor1 = ace.edit("editor");
-  editor1.setTheme("ace/theme/monokai");
-  editor1.session.setMode("ace/mode/javascript");
-  editor1.setAutoScrollEditorIntoView(true);
-  editor1.setOption("maxLines", 30);
+  var editor = ace.edit("editor");
+  editor.setTheme("ace/theme/monokai");
+  editor.session.setMode("ace/mode/javascript");
+  editor.setAutoScrollEditorIntoView(true);
+  editor.setOption("maxLines", 30);
+
+  $('#js-mode').on('change', function() {
+    editor.session.setMode("ace/mode/" + $('#js-mode').val());
+  });
 
   TogetherJSConfig_dontShowClicks = true;
   TogetherJSConfig_includeHashInUrl = true;
