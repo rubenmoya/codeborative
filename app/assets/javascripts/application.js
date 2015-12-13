@@ -29,7 +29,8 @@ $(document).on('page:change', function(){
     $('.Menu').toggleClass('Menu--active')
   });
 
-  $('.module .top-bar').on('click', function() {
-    $('.module .discussion').slideToggle();
+  $('.Friendlist-header').on('click', function() {
+    $('.Friendlist-body').toggle();
+    $('.Friendlist-header .options i').toggleClass('fa-angle-down fa-angle-up');
   })
 });

@@ -1,0 +1,65 @@
+.Friendlist {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  width: 250px;
+}
+
+.Friendlist-header {
+  background: $navbar-background;
+  color: white;
+  padding: .4rem 1rem;
+  overflow: hidden;
+  border-radius: 2px 2px 0 0;
+  border-right: 1px solid rgba(85, 85, 85, 0.87);
+  border-left: 1px solid rgba(85, 85, 85, 0.87);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .title {
+    font-size: 1rem;
+    color: $navbar-font-light;
+    font-family: 'play';
+    font-weight: normal;
+    margin: 0;
+
+    i {
+      font-size: .85rem;
+    }
+  }
+}
+
+.Friendlist-body {
+  display: none;
+  min-height: 180px;
+  max-height: 280px;
+  width: 250px;
+  overflow-y: auto;
+  padding: 7px;
+  margin: 0;
+  border-left: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #EEE;
+  background: #e5e5e5;
+  line-height: 1.3em;
+  list-style: none;
+}
+
+.Friendlist-contact {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #CCC;
+  padding: .8rem 0;
+
+  > .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 2px;
+  }
+
+  > .info {
+    margin-left: .5rem;
+  }
+}

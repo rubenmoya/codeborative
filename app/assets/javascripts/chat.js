@@ -40,15 +40,6 @@ var ready = function () {
         },
 
         /**
-         * Plays a notification sound when a new chat message arrives
-         */
-
-        notify: function () {
-            // var audioplayer = $('#chatAudio')[0];
-            // audioplayer.play();
-        },
-
-        /**
          * Handles 'smart layouts' of the chatboxes. Like when new chatboxes are
          * added or removed from the view, it restructures them so that they appear
          * neatly aligned on the page
@@ -61,7 +52,7 @@ var ready = function () {
 
                 if ($("#chatbox_" + chatbox_id).css('display') != 'none') {
                     if (align == 0) {
-                        $("#chatbox_" + chatbox_id).css('right', '20px');
+                        $("#chatbox_" + chatbox_id).css('right', '290px');
                     } else {
                         width = (align) * (280 + 7) + 20;
                         $("#chatbox_" + chatbox_id).css('right', width + 'px');
@@ -112,7 +103,7 @@ var ready = function () {
             }
 
             if (chatBoxeslength == 0) {
-                $("#chatbox_" + conversation_id).css('right', '20px');
+                $("#chatbox_" + conversation_id).css('right', '290px');
             } else {
                 width = (chatBoxeslength) * (280 + 7) + 20;
                 $("#chatbox_" + conversation_id).css('right', width + 'px');

@@ -1,14 +1,14 @@
-%section.module
-  %header.top-bar
-    .left
+%section.Friendlist
+  %header.Friendlist-header
+    %h1.title
       =icon('users')
-      %h1 Friend list
-    .right
-      =icon('toggle-down')
-  %ol.discussion
+      Friends
+    .options
+      =icon('angle-up')
+  %ol.Friendlist-body
     - current_user.friends.each do |friend|
-      %li.contact
-        -#=image_tag(friend.avatar, class: "avatar")
+      %li.Friendlist-contact
+        =image_tag(friend.avatar, class: "avatar")
         .info
           = link_to friend.name, "#", class: "btn btn-success btn-xs start-conversation",
               "data-sid" => current_user.id, "data-rip" => friend.id
