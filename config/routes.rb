@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   root 'statics#index'
 
+  get '/editor' => 'statics#editor', as: :editor
+
   get '/search(/:skills)' => 'projects#index', as: :search
 
   get '/tags' => 'tags#index'
@@ -30,8 +32,6 @@ Rails.application.routes.draw do
       post :mark_as_read
     end
   end
-
-  resources :documents, only: [:show, :create, :update, :destroy]
 
   devise_for :users,
     path: '/',

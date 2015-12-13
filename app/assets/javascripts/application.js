@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require selectize
-//= require simplepeer
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks
