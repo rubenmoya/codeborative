@@ -20,7 +20,6 @@
           =current_user.name
           =icon('angle-down')
         %ul
-          %li=link_to "Mailbox", user_messages_path(current_user.last_conversation)
           %li=link_to "Projects", user_projects_path
           %li=link_to "Friends", user_friends_path
           - if current_user.admin?

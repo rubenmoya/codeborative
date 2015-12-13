@@ -1,45 +1,41 @@
 class MessagesController < ApplicationController
-  before_action :set_conversation
   before_action :authenticate_user!
 
-  def index
-    @friends = current_user.friends
-
-    if params[:conversation_id]
-      if @conversation.present?
-        @messages = @conversation.messages
-        @message = @conversation.messages.new
-      else
-        redirect_to user_messages_path
-      end
-    end
-  end
-
   def create
-    @message = @conversation.messages.new(message_params)
+    @conversation = Conversation.find(params[:conversation_id])
+    @message = @conversation.messages.build(message_params)
+    @message.user_id = current_user.id
+    @message.save!
 
-    if @message.save
-      to_send = {
-        message: {
-          body: @message.body,
-          created_at: @message.created_at
-        },
-        user: {
-          name: @message.user.name,
-          avatar: @message.user.avatar
-        }
-      }
-      Pusher.trigger("messages-channel", "update-chat-#{@conversation.id}", to_send)
-    end
+    to_send = {
+      conversation_id: @conversation.id,
+      message: {
+        body: @message.body,
+        created_at: @message.created_at,
+        date: @message.created_at.strftime("%d %b  %Y at %I:%M%p")
+      },
+      sender: {
+        id: @message.user_id,
+        name: @message.user.name,
+        avatar: @message.user.avatar
+      },
+      self_or_other: self_or_other
+    }
+
+    Pusher.trigger("messages-channel", "update-chat-#{message_recipient.id}", to_send)
   end
 
   private
 
-  def set_conversation
-    @conversation = Conversation.find_by_id(params[:conversation_id])
+  def message_recipient
+    @message.user == @conversation.sender ? @conversation.recipient : @conversation.sender
+  end
+
+  def self_or_other
+    @message.user == current_user ? "self" : "other"
   end
 
   def message_params
-    params.require(:message).permit(:body, :user_id)
+    params.require(:message).permit(:body)
   end
 end

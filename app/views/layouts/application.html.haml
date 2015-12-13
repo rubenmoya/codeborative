@@ -8,12 +8,17 @@
     %title Codeborative
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     %script{:src => "https://js.pusher.com/3.0/pusher.min.js"}
-    = javascript_include_tag 'application', params[:controller], 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+
   %body
     = render 'shared/navbar'
+
+    -if user_signed_in?
+      = render 'shared/friendlist'
 
     - flash.each do |name, msg|
       %div{:class => "Alert Alert--#{name}"}
         = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+
     = yield

@@ -1,0 +1,14 @@
+%section.module
+  %header.top-bar
+    .left
+      =icon('users')
+      %h1 Friend list
+    .right
+      =icon('toggle-down')
+  %ol.discussion
+    - current_user.friends.each do |friend|
+      %li.contact
+        -#=image_tag(friend.avatar, class: "avatar")
+        .info
+          = link_to friend.name, "#", class: "btn btn-success btn-xs start-conversation",
+              "data-sid" => current_user.id, "data-rip" => friend.id

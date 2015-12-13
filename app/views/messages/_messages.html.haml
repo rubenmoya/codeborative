@@ -1,7 +1,0 @@
-.MessageList{"data-conversation-id" => @conversation.id}
-  - if @messages.present? && @messages.size > 0
-    - @messages.each do |message|
-      - if message.body
-        = render partial: 'message', locals: {message: message}
-
-= render 'new'

@@ -19,9 +19,17 @@
 //= require nprogress-turbolinks
 //= require notifications
 //= require tags
+//= require chat
+//= require users
+//= require messages
 //= require_self
+
 $(document).on('page:change', function(){
   $('.toggleMenu').on('click', function() {
     $('.Menu').toggleClass('Menu--active')
   });
+
+  $('.module .top-bar').on('click', function() {
+    $('.module .discussion').slideToggle();
+  })
 });
