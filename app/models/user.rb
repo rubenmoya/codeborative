@@ -18,8 +18,8 @@ class User < ActiveRecord::Base
     active_friends | passive_friends
   end
 
-  def are_friends user_id
-    self.active_friends.where('user_id = ?  || friend_id = ?', user_id, user_id)
+  def are_friends user
+    self.friends.any? && self.friends.include?(user)
   end
 
   def last_conversation

@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require selectize
 //= require ace-rails-ap
+//= require ace/theme-monokai
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks

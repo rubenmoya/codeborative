@@ -1,0 +1,31 @@
+<div class="u-container">
+  <button class="Button Button--red Button--sm" data-end-togetherjs-html="End TogetherJS" id="start-togetherjs" onclick="TogetherJS(this); return false" type="button">
+    Start TogetherJS
+  </button>
+  <pre id="editor">
+    var App = React.createComponent({
+      getInitialState: function() {
+        return {
+          someState: true
+        }
+      }
+    });
+  </pre>
+</div>
+
+<script>
+  var editor1 = ace.edit("editor");
+  editor1.setTheme("ace/theme/monokai");
+  editor1.session.setMode("ace/mode/javascript");
+  editor1.setAutoScrollEditorIntoView(true);
+  editor1.setOption("maxLines", 30);
+
+  TogetherJSConfig_dontShowClicks = true;
+  TogetherJSConfig_includeHashInUrl = true;
+  TogetherJSConfig_inviteFromRoom = false;
+  TogetherJSConfig_suppressJoinConfirmation = true;
+  TogetherJSConfig_getUserName = function () {return '#{ current_user.name }';};
+  TogetherJSConfig_getUserAvatar = function () {return '#{ current_user.avatar }';};
+</script>
+
+<script src="https://togetherjs.com/togetherjs-min.js"></script>
