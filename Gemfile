@@ -4,7 +4,6 @@ ruby '2.2.2'
 gem 'rails', '4.2.4'
 gem 'pusher'
 
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -23,15 +22,24 @@ gem 'ace-rails-ap'
 gem 'devise', '~> 3.5', '>= 3.5.2'
 gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 
-gem 'figaro', '~> 1.1', '>= 1.1.1'
-
 gem "administrate", git: "https://github.com/thoughtbot/administrate.git"
+
+group :production do
+  gem 'pg'
+end
 
 group :development, :test do
   gem 'byebug'
 end
 
 group :development do
+  gem 'capistrano', '~> 3.1.0'
+  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-rails', '~> 1.1.1'
+  gem 'capistrano-rbenv', github: "capistrano/rbenv"
+
+  gem 'figaro', '~> 1.1', '>= 1.1.1'
+  gem 'sqlite3'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'awesome_print', require: 'ap'
