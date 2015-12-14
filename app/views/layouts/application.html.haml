@@ -14,13 +14,13 @@
   %body
     = render 'shared/navbar'
 
-    -if user_signed_in? && current_user.friends.count > 0
-      = render 'shared/friendlist'
+    %main
+      -if user_signed_in? && current_user.friends.count > 0
+        = render 'shared/friendlist'
 
-    - flash.each do |name, msg|
-      %div{:class => "Alert Alert--#{name}"}
-        = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
-
-    = yield
+      - flash.each do |name, msg|
+        %div{:class => "Alert Alert--#{name}"}
+          = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+      = yield
 
     = render 'shared/footer'
