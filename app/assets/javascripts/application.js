@@ -15,6 +15,11 @@
 //= require selectize
 //= require ace-rails-ap
 //= require ace/theme-monokai
+//= require ace/mode-javascript
+//= require ace/mode-ruby
+//= require ace/mode-php
+//= require ace/mode-html
+//= require ace/mode-css
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks
