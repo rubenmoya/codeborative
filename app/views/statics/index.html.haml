@@ -3,9 +3,14 @@
   .u-container
     %h1 Improve your skills and learn new technologies
     %h2 Learn from the best developers and help them with their projects
-    %button.Button.Button--red.Button--lg
-      =icon('github-alt')
-      CONNECT TO LEARN
+    - if user_signed_in?
+      =link_to projects_path, class: "Button Button--red Button--lg" do
+        =icon('search')
+        SEARCH PROJECTS
+    - else
+      =link_to user_omniauth_authorize_path(:github), class: "Button Button--red Button--lg" do
+        =icon('github-alt')
+        CONNECT TO LEARN
 %section.Home--alt
   .u-container
     %h1 What's codeborative

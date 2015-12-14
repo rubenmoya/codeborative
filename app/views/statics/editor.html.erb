@@ -8,8 +8,8 @@
         <option value="ruby">Ruby</option>
         <option value="css">CSS</option>
       </select>
-      <button class="Button Button--red Button--sm u-right" data-end-togetherjs-html="End TogetherJS" id="start-togetherjs" onclick="TogetherJS(this); return false" type="button">
-        Start TogetherJS
+      <button class="Button Button--red Button--xs u-right" data-end-togetherjs-html="End TogetherJS" id="start-togetherjs" onclick="TogetherJS(this); return false" type="button">
+        <%= icon('share-alt') %> Start TogetherJS
       </button>
     </header>
     <br>
@@ -19,7 +19,7 @@ var App = React.createComponent({
   getInitialState: function() {
     return {
       someState: true
-    }
+    };
   }
 });
 
@@ -42,8 +42,8 @@ var App = React.createComponent({
   TogetherJSConfig_includeHashInUrl = true;
   TogetherJSConfig_inviteFromRoom = false;
   TogetherJSConfig_suppressJoinConfirmation = true;
-  TogetherJSConfig_getUserName = function () {return '#{ current_user.name }';};
-  TogetherJSConfig_getUserAvatar = function () {return '#{ current_user.avatar }';};
+  TogetherJSConfig_getUserName = function () {return '<%= current_user.name %>';};
+  TogetherJSConfig_getUserAvatar = function () {return '<%= current_user.avatar  %>';};
 </script>
 
 <script src="https://togetherjs.com/togetherjs-min.js"></script>

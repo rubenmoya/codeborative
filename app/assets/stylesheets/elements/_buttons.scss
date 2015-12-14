@@ -7,6 +7,7 @@
   padding: .4rem 1rem;
   letter-spacing: 2px;
   text-align: center;
+  background: $navbar-background;
   color: #FFF;
   text-transform: uppercase;
   text-decoration: none;
@@ -18,6 +19,7 @@
     color: #FFF;
     text-decoration: none;
     outline: none;
+    background: lighten($navbar-background, 8%);
   }
 }
 
@@ -31,8 +33,6 @@
   &:hover, &:focus, &:active{
     background: lighten($color, 8%);
   }
-
-
 }
 
 .Button--green {
@@ -51,6 +51,10 @@
   @include button(#f1c40f);
 }
 
+.Button--grey {
+  @include button(#cccccc);
+}
+
 
 /* --------------------------
  * Button sizes
@@ -59,6 +63,11 @@
 .Button {
   &--block {
     width: 100%;
+  }
+
+  &--xs {
+    padding: .2rem .7rem;
+    font-size: .8rem;
   }
 
   &--lg {

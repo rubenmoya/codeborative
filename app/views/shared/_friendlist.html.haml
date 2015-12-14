@@ -10,5 +10,4 @@
       %li.Friendlist-contact
         =image_tag(friend.avatar, class: "avatar")
         .info
-          = link_to friend.name, "#", class: "btn btn-success btn-xs start-conversation",
-              "data-sid" => current_user.id, "data-rip" => friend.id
+          = link_to friend.name, "#", class: "start-conversation", "data-sid" => current_user.id, "data-rip" => friend.id
