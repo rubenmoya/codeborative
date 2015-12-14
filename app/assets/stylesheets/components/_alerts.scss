@@ -8,6 +8,7 @@
   border-radius: 2px;
   border: 1px solid #111;
   animation: fadeOut 3s linear forwards;
+  z-index: 9999;
 
   &--success, &--notice {
     background: $alert-success;

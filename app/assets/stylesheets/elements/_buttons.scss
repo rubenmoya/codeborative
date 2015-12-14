@@ -7,19 +7,15 @@
   padding: .4rem 1rem;
   letter-spacing: 2px;
   text-align: center;
-  color: #fff;
+  color: #FFF;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
   border: 0;
   transition: all .3s;
 
-  &:hover{
-   opacity:0.8;
-  }
-
   &:hover, &:active, &:focus {
-    color: white;
+    color: #FFF;
     text-decoration: none;
     outline: none;
   }
@@ -32,8 +28,8 @@
 @mixin button($color) {
   background: $color;
 
-  &:active{
-    background: lighten($color, 1%);
+  &:hover, &:focus, &:active{
+    background: lighten($color, 8%);
   }
 
 

@@ -8,7 +8,7 @@
     position: absolute;
     z-index: -1;
     left: 0;
-    top: -200px;
+    top: 0;
   }
 
   h1, h2 {
@@ -30,5 +30,31 @@
     line-height: 2.5rem;
     font-weight: 300;
     margin-bottom: 8rem;
+  }
+}
+
+.Home--alt {
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+    text-transform: capitalize;
+  }
+}
+
+.image_text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+
+  .desc {
+    margin: 0 1rem;
+  }
+
+  &--alt {
+    @extend .image_text;
+    flex-direction: row-reverse;
   }
 }

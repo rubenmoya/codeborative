@@ -1,0 +1,28 @@
+.Footer {
+  padding: $wrapper;
+  background: $navbar-background;
+  color: $font-color-title;
+  font-weight: 300;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  h1, p {
+    margin: 0;
+  }
+
+  .info {
+    a {
+      color: $font-color-title;
+    }
+
+    i {
+      font-size: 1rem;
+    }
+  }
+
+  .legal {
+    font-size: .8rem;
+  }
+}
