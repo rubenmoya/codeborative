@@ -1,7 +1,20 @@
 %section.Home
+  =image_tag(asset_path("laptop.jpg"), class: "home_img")
   .u-container
-    %h1 Help us to build a better community
-    %h2
-      Learn from the best developers or
-      %br/
-      teach the next generation, it's up to you.
+    %h1 Improve your skills and learn new technologies
+    %h2 Learn from the best developers and help them with their projects
+    %button.Button.Button--red.Button--lg
+      =icon('github-alt')
+      CONNECT TO LEARN
+%section.Home--alt
+  .u-container
+    %h1 What's codeborative?
+    %div.u-clear
+      =image_tag("http://placehold.it/280x280", class: "u-left")
+      Do you have a personal project and want to share your knowledge? Are you learning a new technology and looking for mentorship? Codeborative is your place!
+    %div.u-clear
+      =image_tag("http://placehold.it/280x280", class: "u-right")
+      In Codeborative you can search for a mentor based on the technology you want to learn. In exchange, you’ll help him with his project, both of you win!
+%section.Home
+  .u-container
+    %h2 Latest projects
