@@ -28,7 +28,6 @@ var ready = function () {
   });
 
   $(document).on('keydown', '.chatboxtextarea', function (event) {
-
       var id = $(this).data('cid');
       chatBox.checkInputKey(event, $(this), id);
   });

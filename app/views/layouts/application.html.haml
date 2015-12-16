@@ -15,7 +15,7 @@
     = render 'shared/navbar'
 
     %main
-      -if user_signed_in? && current_user.friends.count > 0
+      -if user_signed_in? && current_user.has_friends?
         = render 'shared/friendlist'
 
       - flash.each do |name, msg|

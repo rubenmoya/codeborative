@@ -6,6 +6,7 @@ class Project < ActiveRecord::Base
   validates_presence_of :name, :url, :description, :tags_list
 
   attr_accessor :tags_list
+  
   after_save :update_tags
 
   def self.with_tags tag_names

@@ -36,20 +36,20 @@ var ready = function () {
          */
 
         restructure: function () {
-            align = 0;
-            for (x in chatBoxes) {
-                chatbox_id = chatBoxes[x];
+          align = 0;
+          for (x in chatBoxes) {
+            chatbox_id = chatBoxes[x];
 
-                if ($("#chatbox_" + chatbox_id).css('display') != 'none') {
-                    if (align == 0) {
-                        $("#chatbox_" + chatbox_id).css('right', '290px');
-                    } else {
-                        width = (align) * (280 + 7) + 20;
-                        $("#chatbox_" + chatbox_id).css('right', width + 'px');
-                    }
-                    align++;
+            if ($("#chatbox_" + chatbox_id).css('display') != 'none') {
+                if (align == 0) {
+                    $("#chatbox_" + chatbox_id).css('right', '290px');
+                } else {
+                    width = (align) * (280 + 7) + 20;
+                    $("#chatbox_" + chatbox_id).css('right', width + 'px');
                 }
+                align++;
             }
+          }
 
         },
 
