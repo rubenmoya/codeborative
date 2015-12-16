@@ -12,6 +12,10 @@ class Project < ActiveRecord::Base
     Project.joins(:tags).where('LOWER(tags.text) IN (?)', tag_names).uniq
   end
 
+  def self.latest_projects
+    Project.all.order('created_at DESC').limit(4)
+  end
+
   def my_tags
     tags.map {|tag| { id: tag.id, text: tag.text} }
   end

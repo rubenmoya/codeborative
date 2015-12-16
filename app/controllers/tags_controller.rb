@@ -6,8 +6,8 @@ class TagsController < ApplicationController
   end
 
   def create
-    @tags = Tag.create(text: params[:text])
+    @tag = Tag.create(text: params[:text])
 
-    render json: @tags
+    render json: @tag
   end
 end

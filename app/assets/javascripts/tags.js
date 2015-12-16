@@ -8,6 +8,7 @@ $(document).on('page:change', function(){
     labelField: 'text',
     searchField: ['text'],
     options: [],
+
     onInitialize: function() {
       var existingOptions = JSON.parse(this.$input.attr('data-selectize-value'));
       var self = this;
@@ -19,23 +20,7 @@ $(document).on('page:change', function(){
         });
       }
     },
-    create: function (input, callback) {
-      $.ajax({
-          url: '/tags/new',
-          data: { 'text': input },
-          type: 'POST',
-          dataType: 'json',
-          success: function (response) {
-              return callback(response);
-          }
-      });
-    },
-    render: {
-        option: function (item, escape) {
-          console.log(item);
-          return '<div>' + escape(item.text) + '</div>';
-        }
-    },
+
     load: function (query, callback) {
         if (!query.length) return callback();
         $.ajax({
@@ -53,5 +38,24 @@ $(document).on('page:change', function(){
             }
         });
     },
+
+    create: function (input, callback) {
+      $.ajax({
+          url: '/tags/new',
+          data: { 'text': input },
+          type: 'POST',
+          dataType: 'json',
+          success: function (response) {
+              return callback(response);
+          }
+      });
+    },
+
+    render: {
+        option: function (item, escape) {
+          console.log(item);
+          return '<div>' + escape(item.text) + '</div>';
+        }
+    }
   });
 });

@@ -7,20 +7,10 @@
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks
-//= require notifications
 //= require tags
+//= require friendlist
 //= require chat
 //= require users
 //= require messages
+//= require menu
 //= require_self
-
-$(document).on('page:change', function(){
-  $('.toggleMenu').on('click', function() {
-    $('.Menu').toggleClass('Menu--active')
-  });
-
-  $('.Friendlist-header').on('click', function() {
-    $('.Friendlist-body').toggle();
-    $('.Friendlist-header .options i').toggleClass('fa-angle-down fa-angle-up');
-  })
-});

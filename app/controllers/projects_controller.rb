@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
       @projects = Project.with_tags(tags_names)
     else
       @latest_projects = true
-      @projects = Project.all.limit(4)
+      @projects = Project.latest_projects
     end
   end
 
@@ -20,9 +20,9 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.new(project_params)
 
     if @project.save
-      redirect_to @project, flash: { success: "Project has been created."}
+      redirect_to @project, flash: { success: "Project has been created successfully."}
     else
-      render :new, flash: { danger: "Project has not been created."}
+      render :new, flash: { error: "Project has not been created."}
     end
   end
 
@@ -36,17 +36,17 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
-      redirect_to @project, flash: { success: "Project has been updated."}
+      redirect_to @project, flash: { success: "Project has been updated successfully."}
     else
-      render :new, flash: { danger: "Project has not been updated."}
+      render :new, flash: { error: "Project has not been updated."}
     end
   end
 
   def destroy
     if @project.destroy
-      redirect_to my_projects_path, flash: { success: "Project has been deleted."}
+      redirect_to my_projects_path, flash: { success: "Project has been deleted successfully."}
     else
-      render :new, flash: { danger: "Project has not been deleted."}
+      render :new, flash: { error: "Project has not been deleted."}
     end
   end
 
