@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   has_many :projects
-  has_many :notifications, foreign_key: :recipient_id
 
   has_many :friendships
   has_many :passive_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
@@ -18,18 +17,12 @@ class User < ActiveRecord::Base
     active_friends | passive_friends
   end
 
-  def are_friends user
-    self.friends.any? && self.friends.include?(user)
+  def are_friends? user
+    self.friends.include?(user)
   end
 
-  def last_conversation
-    last_conversation = Message.where(user_id: self.id).order('created_at').last
-
-    last_conversation ? last_conversation.conversation_id : nil
-  end
-
-  def has_conversation user_id
-    Conversation.between(self.id, user_id).present?
+  def has_friends?
+    self.friends.any?
   end
 
   def self.from_omniauth auth

@@ -12,8 +12,8 @@ class Project < ActiveRecord::Base
     Project.joins(:tags).where('LOWER(tags.text) IN (?)', tag_names).uniq
   end
 
-  def self.latest_projects
-    Project.all.order('created_at DESC').limit(4)
+  def self.latest_projects number
+    Project.all.order('created_at DESC').limit(number)
   end
 
   def my_tags

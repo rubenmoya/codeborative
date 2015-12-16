@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
       @projects = Project.with_tags(tags_names)
     else
       @latest_projects = true
-      @projects = Project.latest_projects
+      @projects = Project.latest_projects(4)
     end
   end
 
@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = current_user.projects.new(project_params)
+    @project = current_user.projects.build(project_params)
 
     if @project.save
       redirect_to @project, flash: { success: "Project has been created successfully."}
