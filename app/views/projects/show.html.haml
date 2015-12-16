@@ -26,6 +26,15 @@
     %section.Project--right
       .u-well
         %h1=@project.name
+        - if current_user == @user
+          =link_to edit_project_path(@project), class: "Button Button--blue Button--xs" do
+            =icon('pencil fa-fw')
+            Edit
+
+          =link_to project_path(@project), method: :delete, data: {confirm: "Are you sure?"}, class: "Button Button--red Button--xs" do
+            =icon('trash fa-fw')
+            Delete
+
         %p
           =icon('github-alt')
           =link_to "View in github", @project.url

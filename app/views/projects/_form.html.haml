@@ -1,4 +1,14 @@
 = form_for @project do |f|
+  - if @project.errors.any?
+    .alert.alert-danger
+      %b
+        = pluralize(@project.errors.count, "Error")
+        prevented this project from being saved:
+
+      %ul
+        - @project.errors.full_messages.each do |msg|
+          %li= msg
+
   .input-group
     =f.label :name
     =f.text_field :name

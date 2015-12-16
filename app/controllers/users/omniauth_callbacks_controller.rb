@@ -7,12 +7,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash[:notice] = "Successfully logged in." if is_navigational_format?
     else
       session["devise.github_data"] = auth_hash
-      redirect_to new_user_registration_url
+      redirect_to root_path
     end
   end
 
   def failure
     super
+    flash[:error] = "Couldn't sign in, try again later."
   end
 
   protected

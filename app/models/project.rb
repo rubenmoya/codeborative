@@ -3,10 +3,10 @@ class Project < ActiveRecord::Base
   has_many :projecttags
   has_many :tags, through: :projecttags
 
-  validates_presence_of :name, :url, :description, :tags_list
+  validates_presence_of :name, :url, :description
 
   attr_accessor :tags_list
-  
+
   after_save :update_tags
 
   def self.with_tags tag_names
@@ -24,7 +24,7 @@ class Project < ActiveRecord::Base
   private
 
   def update_tags
-    tags_ids = self.tags_list.split(',').map(&:to_i)
+    tags_ids = self.tags_list.present? ? self.tags_list.split(',').map(&:to_i) : []
     db_tag_ids = self.tags.map(&:id)
 
     old_tag_ids = db_tag_ids - tags_ids

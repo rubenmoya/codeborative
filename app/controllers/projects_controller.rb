@@ -44,7 +44,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     if @project.destroy
-      redirect_to my_projects_path, flash: { success: "Project has been deleted successfully."}
+      redirect_to user_projects_path, flash: { success: "Project has been deleted successfully."}
     else
       render :new, flash: { error: "Project has not been deleted."}
     end
