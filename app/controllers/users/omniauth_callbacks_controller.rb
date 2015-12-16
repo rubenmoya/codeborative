@@ -4,7 +4,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if @user.persisted?
       sign_in_and_redirect @user, :event => :authentication
-      flash[:notice] = "Successfully logged in?" if is_navigational_format?
+      flash[:notice] = "Successfully logged in." if is_navigational_format?
     else
       session["devise.github_data"] = auth_hash
       redirect_to new_user_registration_url

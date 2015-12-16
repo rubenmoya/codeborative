@@ -20,15 +20,15 @@ $(document).on('page:change', function(){
       }
     },
     create: function (input, callback) {
-        $.ajax({
-            url: '/tags/new',
-            data: { 'text': input },
-            type: 'POST',
-            dataType: 'json',
-            success: function (response) {
-                return callback(response);
-            }
-        });
+      $.ajax({
+          url: '/tags/new',
+          data: { 'text': input },
+          type: 'POST',
+          dataType: 'json',
+          success: function (response) {
+              return callback(response);
+          }
+      });
     },
     render: {
         option: function (item, escape) {
