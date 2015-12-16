@@ -4,7 +4,11 @@
       .input-group
         = f.text_field :tags, placeholder: "Tags separated by comma"
 
-  %h2 Latest projects
+  - if @latest_projects
+    %h2 Latest projects
+  - else
+    %h2 #{pluralize(@projects.count, "Project")} found
+
   %section.ProjectList
     - @projects.each do |project|
       %article.Project

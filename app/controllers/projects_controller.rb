@@ -3,12 +3,13 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-   if params[:search]
-     tags_names = params[:search][:tags].split(',').map(&:strip).map(&:downcase)
-     @projects = Project.with_tags(tags_names)
-   else
-      @projects = Project.all
-   end
+    if params[:search]
+      tags_names = params[:search][:tags].split(',').map(&:strip).map(&:downcase)
+      @projects = Project.with_tags(tags_names)
+    else
+      @latest_projects = true
+      @projects = Project.all.limit(4)
+    end
   end
 
   def new

@@ -28,7 +28,6 @@ channel.bind('pusher:subscription_succeeded', function() {
     	chatBox.chatWith(id);
       chatbox.children().last().removeClass("self").addClass("other");
     	chatbox.scrollTop(chatbox[0].scrollHeight);
-      //chatBox.notify();
     }
   });
 });
