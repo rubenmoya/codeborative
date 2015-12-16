@@ -22,40 +22,40 @@ $(document).on('page:change', function(){
     },
 
     load: function (query, callback) {
-        if (!query.length) return callback();
-        $.ajax({
-            url: '/tags',
-            dataType: 'json',
-            data: {
-              q: query
-            },
-            error: function () {
-              callback();
-            },
-            success: function (res) {
-              console.log(res);
-              callback(res);
-            }
-        });
-    },
-
-    create: function (input, callback) {
+      if (!query.length) return callback();
       $.ajax({
-          url: '/tags/new',
-          data: { 'text': input },
-          type: 'POST',
+          url: '/tags',
           dataType: 'json',
-          success: function (response) {
-              return callback(response);
+          data: {
+            q: query
+          },
+          error: function () {
+            callback();
+          },
+          success: function (res) {
+            console.log(res);
+            callback(res);
           }
       });
     },
 
-    render: {
-        option: function (item, escape) {
-          console.log(item);
-          return '<div>' + escape(item.text) + '</div>';
+    create: function (input, callback) {
+      $.ajax({
+        url: '/tags/new',
+        data: { 'text': input },
+        type: 'POST',
+        dataType: 'json',
+        success: function (response) {
+          return callback(response);
         }
+      });
+    },
+
+    render: {
+      option: function (item, escape) {
+        console.log(item);
+        return '<div>' + escape(item.text) + '</div>';
+      }
     }
   });
 });
