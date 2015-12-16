@@ -30,6 +30,13 @@ end
 
 group :development, :test do
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.4'
+end
+
+group :test do
+  gem 'capybara', '~> 2.5'
+  gem 'guard-rspec', '~> 4.6', '>= 4.6.4', require: false
+  gem 'spring-commands-rspec', '~> 1.0', '>= 1.0.4'
 end
 
 group :development do
