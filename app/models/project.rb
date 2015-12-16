@@ -3,6 +3,8 @@ class Project < ActiveRecord::Base
   has_many :projecttags
   has_many :tags, through: :projecttags
 
+  validates_presence_of :name, :url, :description, :tags_list
+
   attr_accessor :tags_list
   after_save :update_tags
 
