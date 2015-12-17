@@ -133,7 +133,7 @@ var ready = function () {
 
             $("#chatbox_" + conversation_id).click(function () {
                 if ($('#chatbox_' + conversation_id + ' .chatboxcontent').css('display') != 'none') {
-                    $("#chatbox_" + conversation_id + " .chatboxtextarea").focus();
+                  //  $("#chatbox_" + conversation_id + " .chatboxtextarea").focus();
                 }
             });
 
