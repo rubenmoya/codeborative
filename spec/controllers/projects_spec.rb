@@ -94,7 +94,7 @@ RSpec.describe ProjectsController, :type => :request do
           }
         }.to_not change(Project, :count)
       end
-      
+
       it "re-renders the :new template" do
         post projects_path, project: {
           name: "",

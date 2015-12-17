@@ -7,9 +7,11 @@ class TagsController < ApplicationController
 
   def create
     @tag = Tag.create(text: params[:text])
-    
+
     if @tag.save
-      render json: @tag
+      render status: :created, json: @tag
+    else
+      render nothing: true, status: :bad_request
     end
   end
 end
