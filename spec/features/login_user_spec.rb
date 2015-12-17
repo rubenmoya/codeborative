@@ -9,7 +9,7 @@ RSpec.feature "Users login" do
   end
 
   scenario "with invalid credentials" do
-    set_invalid_omniauth()
+    mock_invalid_hash()
 
     visit "/"
     click_link "Connect with Github"
