@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:github]
 
 
+  def is_admin?
+    self.admin
+  end
+
   def friends
     active_friends | passive_friends
   end
