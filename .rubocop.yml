@@ -15,6 +15,7 @@ AllCops:
     - '**/*.gemspec'
     - '**/Gemfile'
     - '**/i18n/**/*'
+    - 'vendor/**/*'
 
 FrozenStringLiteralComment:
   Enabled: false

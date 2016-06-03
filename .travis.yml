@@ -3,6 +3,7 @@ rvm:
   - 2.3.1
 env:
   - DB=postgresql
+  - SECRET_KEY_BASE=04ee4c0b1d06ea1b2b85ad895255e3d1e34df72c6416084e47b5e749a6bc596a4124d7e840035428ce1a4b57f9b9b8970cd77dae6b7da5ab99363aead0ba41ad
 services:
   - postgresql
 script:
