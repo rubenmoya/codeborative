@@ -13,8 +13,8 @@ class TagDashboard < Administrate::BaseDashboard
     id: Field::Number,
     text: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
-  }
+    updated_at: Field::DateTime
+  }.freeze
 
   # COLLECTION_ATTRIBUTES
   # an array of attributes that will be displayed on the model's index page.
@@ -23,8 +23,8 @@ class TagDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :text,
-  ]
+    :text
+  ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
@@ -34,8 +34,8 @@ class TagDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :text,
-  ]
+    :text
+  ].freeze
 
   # Overwrite this method to customize how tags are displayed
   # across all pages of the admin dashboard.

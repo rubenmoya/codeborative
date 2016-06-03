@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
 
   def index
     if params[:search]
-      tags_names = params[:search][:tags].split(',').map(&:strip).map(&:downcase)
+      tags_names = params[:search][:tags].split(",").map(&:strip).map(&:downcase)
       @projects = Project.with_tags(tags_names)
     else
       @latest_projects = true
@@ -13,16 +13,16 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = current_user.projects.build()
+    @project = current_user.projects.build
   end
 
   def create
     @project = current_user.projects.build(project_params)
 
     if @project.save
-      redirect_to @project, flash: { success: "Project has been created successfully."}
+      redirect_to @project, flash: { success: "Project has been created successfully." }
     else
-      render :new, flash: { error: "Project has not been created."}
+      render :new, flash: { error: "Project has not been created." }
     end
   end
 
@@ -36,17 +36,17 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
-      redirect_to @project, flash: { success: "Project has been updated successfully."}
+      redirect_to @project, flash: { success: "Project has been updated successfully." }
     else
-      render :new, flash: { error: "Project has not been updated."}
+      render :new, flash: { error: "Project has not been updated." }
     end
   end
 
   def destroy
     if @project.destroy
-      redirect_to user_projects_path, flash: { success: "Project has been deleted successfully."}
+      redirect_to user_projects_path, flash: { success: "Project has been deleted successfully." }
     else
-      render :new, flash: { error: "Project has not been deleted."}
+      render :new, flash: { error: "Project has not been deleted." }
     end
   end
 

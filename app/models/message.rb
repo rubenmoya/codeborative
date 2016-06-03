@@ -2,25 +2,25 @@ class Message < ActiveRecord::Base
   belongs_to :conversation
   belongs_to :user
 
-  validates_presence_of :body, :conversation_id, :user_id
+  validates :body, :conversation_id, :user_id, presence: true
 
   def as_json
     {
-      conversation_id: self.conversation.id,
+      conversation_id: conversation.id,
       message: {
-        body: self.body,
-        created_at: self.created_at,
-        date: self.created_at.strftime("%d %b  %Y at %I:%M%p")
+        body: body,
+        created_at: created_at,
+        date: created_at.strftime("%d %b  %Y at %I:%M%p")
       },
       sender: {
-        id: self.user_id,
-        name: self.user.name,
-        avatar: self.user.avatar
+        id: user_id,
+        name: user.name,
+        avatar: user.avatar
       }
     }
   end
 
-  def get_recipient_id
-    self.user == self.conversation.sender ? self.conversation.recipient.id : self.conversation.sender.id
+  def recipient_id
+    user == conversation.sender ? conversation.recipient.id : conversation.sender.id
   end
 end

@@ -7,10 +7,11 @@
 module Admin
   class ApplicationController < Administrate::ApplicationController
     before_action :authenticate_user!
-    before_filter :authenticate_admin
+    before_action :authenticate_admin
 
     def authenticate_admin
-      redirect_to '/', flash: { danger: 'Not authorized.' } unless current_user && current_user.is_admin?
+      redirect_to "/", flash: { danger: "Not authorized." } unless
+        current_user && current_user.admin?
     end
 
     # Override this value to specify the number of elements to display at a time

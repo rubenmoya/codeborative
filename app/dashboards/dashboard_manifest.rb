@@ -12,8 +12,8 @@ class DashboardManifest
   DASHBOARDS = [
     :users,
     :projects,
-    :tags,
-  ]
+    :tags
+  ].freeze
 
   # `ROOT_DASHBOARD`
   # the name of the dashboard that will be displayed

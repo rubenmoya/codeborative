@@ -1,0 +1,50 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'db/**/*'
+    - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'
+    - 'config/initializers/**/*'
+    - 'config/environments/**/*'
+    - 'config/application.rb'
+    - 'bin/*'
+    - '**/Guardfile'
+    - '**/Rakefile'
+    - 'lib/tasks/**/*'
+    - 'lib/api_error_log.rb'
+    - '**/*.gemspec'
+    - '**/Gemfile'
+    - '**/i18n/**/*'
+
+FrozenStringLiteralComment:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 100
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: aligned
+
+Metrics/AbcSize:
+  Max: 23
+
+Metrics/MethodLength:
+  Max: 15
+
+Lint/RequireParentheses:
+  Enabled: true
+
+Rails:
+  Enabled: true

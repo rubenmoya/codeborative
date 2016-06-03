@@ -22,7 +22,7 @@ class ConversationsController < ApplicationController
 
   private
 
-  def interlocutor conversation
+  def interlocutor(conversation)
     current_user == conversation.recipient ? conversation.sender : conversation.recipient
   end
 

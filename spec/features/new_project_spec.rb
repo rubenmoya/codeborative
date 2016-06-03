@@ -4,7 +4,7 @@ require_relative "../support/omniauth"
 RSpec.feature "Creating projects" do
   context "user is logged in" do
     scenario "successfully creates the project" do
-      log_in_github()
+      log_in_github
 
       click_link "Projects"
       click_link "New project"
@@ -19,7 +19,7 @@ RSpec.feature "Creating projects" do
     end
 
     scenario "fails to create a project" do
-      log_in_github()
+      log_in_github
 
       click_link "Projects"
       click_link "New project"

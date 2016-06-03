@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   namespace :admin do
     DashboardManifest::DASHBOARDS.each do |dashboard_resource|
       resources dashboard_resource
@@ -10,17 +9,17 @@ Rails.application.routes.draw do
 
   root 'statics#index'
 
-  get '/editor' => 'statics#editor', as: :editor
+  get "/editor" => 'statics#editor', as: :editor
 
-  get '/search(/:skills)' => 'projects#index', as: :search
+  get "/search(/:skills)" => 'projects#index', as: :search
 
-  get '/tags' => 'tags#index'
-  post '/tags/new' => 'tags#create'
+  get "/tags" => 'tags#index'
+  post "/tags/new" => 'tags#create'
 
   resources :friendships, only: [:create, :update, :destroy]
 
   resources :projects do
-    post '/update_tags' => 'projects#update_tags'
+    post "/update_tags" => 'projects#update_tags'
   end
 
   resources :conversations do
@@ -34,22 +33,22 @@ Rails.application.routes.draw do
   end
 
   devise_for :users,
-    path: '/',
-    path_names: {
-      sign_in: 'login',
-      sign_out: 'logout',
-      sign_up: 'signup',
-      edit: 'profile'
-    },
-    controllers: {
-      sessions: 'users/sessions',
-      registrations: 'users/registrations',
-      omniauth_callbacks: 'users/omniauth_callbacks'
-    }
+             path: "/",
+             path_names: {
+               sign_in: "login",
+               sign_out: "logout",
+               sign_up: "signup",
+               edit: "profile"
+             },
+             controllers: {
+               sessions: "users/sessions",
+               registrations: "users/registrations",
+               omniauth_callbacks: "users/omniauth_callbacks"
+             }
 
-  get '/profile/projects' => 'users#projects', as: :user_projects
-  get '/profile/friends' => 'users#friends', as: :user_friends
-  get '/profilemailbox' => 'users#mailbox', as: :user_mailbox
+  get "/profile/projects" => 'users#projects', as: :user_projects
+  get "/profile/friends" => 'users#friends', as: :user_friends
+  get "/profilemailbox" => 'users#mailbox', as: :user_mailbox
 
-  match '/pusher/auth' => 'pusher#auth', via: :post
+  match "/pusher/auth" => 'pusher#auth', via: :post
 end

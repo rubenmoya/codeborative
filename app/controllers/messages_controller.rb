@@ -6,9 +6,9 @@ class MessagesController < ApplicationController
     @message = @conversation.messages.build(message_params)
     @message.user_id = current_user.id
 
-    if @message.save
-      Pusher.trigger("messages-channel", "update-chat-#{@message.get_recipient_id}", @message.as_json)
-    end
+    Pusher.trigger("messages-channel",
+                   "update-chat-#{@message.recipient_id}",
+                   @message.as_json) if @message.save
   end
 
   private

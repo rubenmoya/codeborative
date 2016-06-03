@@ -3,7 +3,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.from_omniauth(auth_hash)
 
     if @user.persisted?
-      sign_in_and_redirect @user, :event => :authentication
+      sign_in_and_redirect @user, event: :authentication
       flash[:notice] = "Successfully logged in." if is_navigational_format?
     else
       session["devise.github_data"] = auth_hash

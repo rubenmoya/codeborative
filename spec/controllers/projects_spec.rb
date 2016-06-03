@@ -1,11 +1,11 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe ProjectsController, :type => :request do
+RSpec.describe ProjectsController, type: :request do
   before do
-    mock_auth_hash()
-    get '/auth/github'
+    mock_auth_hash
+    get "/auth/github"
     Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:github]
-    get '/auth/github/callback'
+    get "/auth/github/callback"
   end
 
   describe "GET #index" do
@@ -65,13 +65,13 @@ RSpec.describe ProjectsController, :type => :request do
   describe "POST #create" do
     context "with valid attributes" do
       it "saves the new contact in the database" do
-        expect{
+        expect do
           post projects_path, project: {
             name: "Codeborative Ironhack",
             url: "http://github.com/rubenmoya/codeborative",
             description: "My project at Ironhack"
           }
-        }.to change(Project, :count).by(1)
+        end.to change(Project, :count).by(1)
       end
 
       it "redirects to the project page" do
@@ -86,13 +86,13 @@ RSpec.describe ProjectsController, :type => :request do
 
     context "with invalid attributes" do
       it "does not save the new contact in the database" do
-        expect{
+        expect do
           post projects_path, project: {
             name: "",
             url: "http://github.com/rubenmoya/codeborative",
             description: "My project at Ironhack"
           }
-        }.to_not change(Project, :count)
+        end.to_not change(Project, :count)
       end
 
       it "re-renders the :new template" do

@@ -3,13 +3,13 @@ require_relative "../support/omniauth"
 
 RSpec.feature "Users login" do
   scenario "with valid credentials" do
-    log_in_github()
+    log_in_github
 
     expect(page).to have_content("Successfully logged in.")
   end
 
   scenario "with invalid credentials" do
-    mock_invalid_hash()
+    mock_invalid_hash
 
     visit "/"
     click_link "Connect with Github"

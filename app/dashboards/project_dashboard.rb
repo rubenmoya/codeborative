@@ -15,8 +15,8 @@ class ProjectDashboard < Administrate::BaseDashboard
     description: Field::Text,
     url: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
-  }
+    updated_at: Field::DateTime
+  }.freeze
 
   # COLLECTION_ATTRIBUTES
   # an array of attributes that will be displayed on the model's index page.
@@ -27,8 +27,8 @@ class ProjectDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :url,
-    :user,
-  ]
+    :user
+  ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
@@ -41,8 +41,8 @@ class ProjectDashboard < Administrate::BaseDashboard
     :name,
     :url,
     :description,
-    :user,
-  ]
+    :user
+  ].freeze
 
   # Overwrite this method to customize how projects are displayed
   # across all pages of the admin dashboard.

@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def create
     @friendship = current_user.friendships.build(friend_id: params[:friend_id])
 
@@ -22,7 +22,8 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    @friendship = Friendship.where(friend_id: [current_user, params[:id]]).where(user_id: [current_user, params[:id]]).last
+    @friendship = Friendship.where(friend_id: [current_user, params[:id]])
+                            .where(user_id: [current_user, params[:id]]).last
     @friendship.destroy
 
     redirect_to :back, flash: { success: "Friendship removed successfully." }

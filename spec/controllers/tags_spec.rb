@@ -1,11 +1,11 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe ProjectsController, :type => :request do
+RSpec.describe ProjectsController, type: :request do
   before do
-    mock_auth_hash()
-    get '/auth/github'
+    mock_auth_hash
+    get "/auth/github"
     Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:github]
-    get '/auth/github/callback'
+    get "/auth/github/callback"
   end
 
   describe "GET #index" do
@@ -21,19 +21,15 @@ RSpec.describe ProjectsController, :type => :request do
 
   describe "POST #create" do
     it "creates a tag with valid attributes" do
-      expect {
-        post tags_new_path, {
-          text: "Ruby on Rails"
-        }
-      }.to change(Tag, :count).by(1)
+      expect do
+        post tags_new_path,           text: "Ruby on Rails"
+      end.to change(Tag, :count).by(1)
     end
 
     it "does not create a tag with invalid attributes" do
-      expect {
-        post tags_new_path, {
-          text: ""
-        }
-      }.to_not change(Tag, :count)
+      expect do
+        post tags_new_path,           text: ""
+      end.to_not change(Tag, :count)
     end
   end
 end

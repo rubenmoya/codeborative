@@ -3,7 +3,7 @@ require_relative "../support/omniauth"
 
 RSpec.feature "Editing a project" do
   before do
-    log_in_github()
+    log_in_github
     @project = Project.create(
       name: "Codeborative Ironhack proyect",
       url: "http://github.com/rubenmoya/codeborative",
